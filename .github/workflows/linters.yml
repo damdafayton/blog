@@ -8,7 +8,7 @@ env:
   POSTGRES_USER: postgres
   POSTGRES_PASSWORD: postgres
   POSTGRES_DB: rails-github-action_test
-  POSTGRES_HOST: localhost
+  # POSTGRES_HOST: postgres
 
 jobs:
   rubocop:
