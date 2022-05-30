@@ -55,7 +55,8 @@ jobs:
       postgres:
         image: postgres:latest
         ports:
-        - 5432:5432
+        - ${{ job.services.postgres.ports[5432] }}
+        # 5432:5432
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-ruby@v1
