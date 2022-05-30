@@ -4,6 +4,11 @@ on: pull_request
 
 env:
   FORCE_COLOR: 1
+  RUBY_VERSION: 2.4
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: postgres
+  POSTGRES_DB: postgres
+
 
 jobs:
   rubocop:
