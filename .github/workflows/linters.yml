@@ -64,7 +64,7 @@ jobs:
 
       - name: Setup app dependencies
         run: |
-          gem install --no-document rubocop -v '>= 1.0, < 2.0' # https://docs.rubocop.org/en/stable/installation/
+          gem install bundler -v 2.3.7
           bundle install --jobs 4 --retry 3
 
       - name: Setup database
