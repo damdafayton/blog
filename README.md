@@ -1,24 +1,39 @@
-# README
+# Hello Rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## Built With
 
-* Ruby version
+- Ruby, Rails
 
-* System dependencies
 
-* Configuration
+## How to run
 
-* Database creation
+```
+git clone https://github.com/damdafayton/rails-project
+cd rails-project
+rails server
+```
 
-* Database initialization
+## Authors
 
-* How to run the test suite
+👤 **damdafayton**
 
-* Services (job queues, cache servers, search engines, etc.)
+- [Github](https://github.com/damdafayton)
+- [LinkedIn](https://linkedin.com/in/damdafayton)
 
-* Deployment instructions
 
-* ...
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+
+## 📝 License
+
+This project is [MIT](./MIT.md) licensed.
