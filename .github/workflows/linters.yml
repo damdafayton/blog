@@ -4,7 +4,7 @@ on: pull_request
 
 env:
   FORCE_COLOR: 1
-  RUBY_VERSION: 3.0.x
+  RUBY_VERSION: 3.1.x
   POSTGRES_USER: postgres
   POSTGRES_PASSWORD: postgres
   POSTGRES_DB: rails-github-action_test
@@ -64,7 +64,7 @@ jobs:
 
       - name: Setup app dependencies
         run: |
-          gem install bundler -v 2.3.7
+          gem install bundler -v 2.3.7 --no-document
           bundle install --jobs 4 --retry 3
 
       - name: Setup database
