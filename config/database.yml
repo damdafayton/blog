@@ -61,7 +61,8 @@ test:
   <<: *default
   # database: rails_project_test
   host: localhost
-  username: postgres  
+  username: postgres
+  password: postgres
   database: rails-github-action_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
