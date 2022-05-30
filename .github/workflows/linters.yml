@@ -8,7 +8,6 @@ env:
   POSTGRES_USER: postgres
   POSTGRES_PASSWORD: postgres
   POSTGRES_DB: rails-github-action_test
-  POSTGRES_PORT: ${{ job.services.postgres.ports[5432] }}
   POSTGRES_HOST: postgres
 
 jobs:
@@ -68,6 +67,7 @@ jobs:
       - name: Setup database
         env:
           RAILS_ENV: test
+          POSTGRES_PORT: ${{ job.services.postgres.ports[5432] }}
         run: |
           cp config/database.yml.ci config/database.yml
           bundle exec rails db:create
@@ -76,4 +76,5 @@ jobs:
       - name: Run rspec
         env:
           RAILS_ENV: test
+          POSTGRES_PORT: ${{ job.services.postgres.ports[5432] }}
         run: bundle exec rspec
