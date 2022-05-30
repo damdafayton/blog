@@ -8,7 +8,6 @@ env:
   POSTGRES_USER: postgres
   POSTGRES_PASSWORD: ""
   POSTGRES_DB: rails-github-action_test
-  # POSTGRES_HOST: postgres
 
 jobs:
   rubocop-test:
@@ -50,6 +49,7 @@ jobs:
   rspec:
     name: RSpec
     runs-on: ubuntu-18.04
+    needs: rubocop-test
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-ruby@v1
