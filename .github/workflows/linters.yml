@@ -58,10 +58,13 @@ jobs:
         - 5432:5432
     steps:
       - uses: actions/checkout@v1
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
 
       - name: Setup app dependencies
         run: |
-          gem install bundler -v 1.17.3 --no-document
+          gem install bundler
           bundle install --jobs 4 --retry 3
 
       - name: Setup database
