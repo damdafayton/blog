@@ -60,7 +60,7 @@ development:
 test:
   <<: *default
   # database: rails_project_test
-  host: localhost
+  host: postgres
   username: postgres
   password: postgres
   database: rails-github-action_test
