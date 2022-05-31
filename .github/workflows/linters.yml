@@ -6,8 +6,9 @@ env:
   FORCE_COLOR: 1
   RUBY_VERSION: 3.1.x
   POSTGRES_USER: postgres
-  POSTGRES_PASSWORD: ""
-  POSTGRES_DB: postgres
+  POSTGRES_PASSWORD: 123456
+  POSTGRES_DB: rails_test
+  
 
 jobs:
   rubocop-test:
