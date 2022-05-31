@@ -5,10 +5,6 @@ ruby '3.1.2'
 
 gem 'ffi'
 
-# linter
-gem 'rubocop', '>= 1.0', '< 2.0'
-gem 'rubocop-discourse'
-
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.3'
 
@@ -76,6 +72,10 @@ group :development do
 end
 
 group :test do
+  # linter
+  gem 'rubocop', '>= 1.0', '< 2.0'
+  gem 'rubocop-rspec'
+  gem 'rubocop-discourse'
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   # gem 'capybara'
   gem 'selenium-webdriver'
