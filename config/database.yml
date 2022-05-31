@@ -66,8 +66,10 @@ test:
   # host: localhost
   host: localhost
   database: rails_test
-  username: <%= ENV["POSTGRES_TEST_USER"] %>
-  password: <%= ENV["POSTGRES_TEST_PASSWORD"] %>
+  username: postgres
+  password: postgres
+  # username: <%= ENV["POSTGRES_TEST_USER"] %>
+  # password: <%= ENV["POSTGRES_TEST_PASSWORD"] %>
   
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
