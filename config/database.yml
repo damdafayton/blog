@@ -64,7 +64,7 @@ test:
   <<: *default
   # database: rails_project_test
   # host: localhost
-  host: localhost
+  # host: localhost
   username: postgres
   password: 123456
   database: rails_test
