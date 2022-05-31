@@ -1,4 +1,4 @@
-# Hello Rails
+# Blog App
 
 
 ## Built With
@@ -9,7 +9,7 @@
 ## How to run
 
 ```
-git clone https://github.com/damdafayton/rails-project
+git clone https://github.com/damdafayton/blog
 cd rails-project
 rails server
 ```
