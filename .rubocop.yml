@@ -1,3 +1,5 @@
+require: rubocop-rspec
+
 AllCops:
   NewCops: enable
   Exclude:
@@ -7,6 +9,8 @@ AllCops:
     - "Guardfile"
     - "Rakefile"
     - "node_modules/**/*"
+    - "tmp/*"
+    - "vendor/**/*"
 
   DisplayCopNames: true
 
@@ -61,3 +65,5 @@ Style/HashTransformValues:
 Layout/EndOfLine:
   EnforcedStyle: lf
   Enabled: false
+RSpec/MultipleExpectations: 
+  Max: 5
