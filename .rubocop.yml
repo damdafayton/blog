@@ -1,5 +1,3 @@
-require: rubocop-rspec
-
 AllCops:
   NewCops: enable
   Exclude:
@@ -65,5 +63,3 @@ Style/HashTransformValues:
 Layout/EndOfLine:
   EnforcedStyle: lf
   Enabled: false
-RSpec/MultipleExpectations: 
-  Max: 5

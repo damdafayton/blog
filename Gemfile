@@ -74,8 +74,8 @@ end
 group :test do
   # linter
   gem 'rubocop', '>= 1.0', '< 2.0'
-  gem 'rubocop-rspec'
   gem 'rubocop-discourse'
+  gem 'rubocop-rspec'
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   # gem 'capybara'
   gem 'selenium-webdriver'
