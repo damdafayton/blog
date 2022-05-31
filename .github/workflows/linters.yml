@@ -5,10 +5,6 @@ on: pull_request
 env:
   FORCE_COLOR: 1
   RUBY_VERSION: 3.1.x
-  POSTGRES_USER: postgres
-  POSTGRES_PASSWORD: 123456
-  POSTGRES_DB: rails_test
-  
 
 jobs:
   rubocop-test:
@@ -56,6 +52,10 @@ jobs:
         image: postgres:latest
         ports:
         - 5432:5432    
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-ruby@v1
