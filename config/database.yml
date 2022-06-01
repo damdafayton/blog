@@ -25,10 +25,9 @@ default: &default
 
 development:
   <<: *default
-  # database: rails_project_development
-  database: railslocal
+  database: rails_blog_development
   username: railslocal
-  password: 123456
+  password: railslocal
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -93,6 +92,6 @@ test:
 #
 production:
   <<: *default
-  database: rails_project_production
-  username: rails_project
-  password: <%= ENV["RAILS_PROJECT_DATABASE_PASSWORD"] %>
+  # database: rails_project_production
+  # username: rails_project
+  # password: <%= ENV["RAILS_PROJECT_DATABASE_PASSWORD"] %>
