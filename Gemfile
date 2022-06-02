@@ -3,6 +3,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.2'
 
+# gem 'erb-formatter'
+# gem 'htmlbeautifier'
+# gem 'erb-lint'
+
 gem 'sass-rails'
 gem 'bootstrap', '~> 5.1', '>= 5.1.3'
 

@@ -1,0 +1,22 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "ERB formatter",
+      "type": "shell",
+      "command": "ext=$(echo ${file})  && if [ ${ext##*.} == erb ]; then htmlbeautifier ${file} ${file}; else echo 'Not an ERB file'; fi",
+      "presentation": {
+        "reveal": "never",
+        "panel": "new",
+        "echo": false
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
+// The ${file} is a predefined variable that gives you the active file in your VScode tab.
+// The following command ${ext##*.} is taking the biggest substring of a string (signle # would take the smallest part) until it meets the last period character. For example the name test.erb , would give you the output erb and the name test.txt would give you txt
+// Now if the erb condition is met, then we should run htmlbeautifier with input and output the absolute path of the file
