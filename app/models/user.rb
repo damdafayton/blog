@@ -1,7 +1,5 @@
 class User < ApplicationRecord
-  has_many :posts, :comments
-  has_many :likes, dependent: :destroy
-  def start
-    p 'empty_model'
-  end
+  has_many :posts
+  has_many :comments
+  has_many :likes, dependent: :destroy, class_name: 'Like', foreign_key: 'author_id'
 end
