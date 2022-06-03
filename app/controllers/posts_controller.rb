@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    p params
+    # make url_helper for pagination
     page = params[:page].to_i
     page = [page, 1].max
     @user = User.find(params[:user_id])

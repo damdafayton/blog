@@ -1,6 +1,6 @@
 <div class='blog-card'>
   <h2>
-    <a href='/users/<%= post.author_id %>/posts/<%= post.id %>'><%= post.title %><a/>
+    <%= link_to post.title, [post.user, post]%>
   </h2>
   <div><%= post.text %></div>
   <div class='text-end'>

@@ -13,9 +13,7 @@
   </div>
   <% if @user_posts_length > 3 then %>
     <div class='text-center mt-3'>
-      <a class='btn btn-secondary' href='/users/<%= @user.id %>/posts'>
-        <%= t("see_all")%>
-      </a>
+      <%= link_to t("see_all"), [@user, :posts], class:'btn btn-secondary' %>
     </div>
   <% end %>
 </section>
