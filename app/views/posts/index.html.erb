@@ -5,7 +5,7 @@
 <% if @user_posts_count > 2 %>
   <div class='text-center mt-3'>
   <% (1..@user_posts_count/2).each { |i| %>
-    <%= i %>
+    <a href='/users/<%=@user.id%>/posts?page=<%= i %>'><%= i %></a>
   <% } %>
   </div>
 <% end %>
