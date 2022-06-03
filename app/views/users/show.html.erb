@@ -1,21 +1,19 @@
-<main class='px-3 px-sm-5'>
-  <section class="">
-    <%= render partial: 'users/user', object: @user %>
-    <div class='py-3 px-4 mt-2 border border-2 shadow-sm'>
-      <h2>Bio:</h2>
-      <div><%= @user.bio %></div>
+<section class="">
+  <%= render partial: 'users/user', object: @user %>
+  <div class='py-3 px-4 mt-2 border border-2 shadow-sm'>
+    <h2>Bio:</h2>
+    <div><%= @user.bio %></div>
+  </div>
+</section>
+<section>
+  <div>
+  <% @user_posts.each_with_index { |post_, index_| %>
+    <%= render partial: 'posts/post', locals:{post: post_, index: index_ , show_comments: false} %>
+  <% } %>
+  </div>
+  <% if @user_posts_length > 3 then %>
+    <div class='text-center mt-3'>
+      <button>See all posts</button>
     </div>
-  </section>
-  <section>
-    <div>
-    <% @user_posts.each_with_index { |post_, index_| %>
-      <%= render partial: 'posts/post', locals:{post: post_, index:index_} %>
-    <% } %>
-    </div>
-      <% if @user_posts_length > 3 then %>
-      <div class='text-center mt-3'>
-        <button>See all posts</button>
-      </div>
-      <% end %>
-  </section>
-</main>
+  <% end %>
+</section>

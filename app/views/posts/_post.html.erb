@@ -1,4 +1,12 @@
 <div class='py-3 px-4 mt-2 border border-2 shadow-sm'>
   <h2>Post #<%= index + 1 %></h2>
   <div><%= post.text %></div>
+  <div class='text-end'>Comments: <%= post.comments.count || 0 %> Likes: <%= post.likes_counter || 0 %> </div>
+  <% if show_comments %>
+  <div>
+    <% post.comments.joins(:user).select('comments.*, users.name').limit(5).each { |comment_| %>
+      <%= render partial: 'comment', object: comment_ %>
+    <% } %>
+  </div>
+  <% end %>
 </div>
