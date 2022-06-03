@@ -3,7 +3,9 @@
     <img class='user-image' src=<%= user.photo %>></img>
   </div>
   <div class='d-flex flex-column px-4 flex-grow-1'>
-    <p class='flex-grow-1'><%= user.name %></p>
+    <p class='flex-grow-1'>
+      <a href='/users/<%= user.id %>'><%= user.name %></a>
+    </p>
     <p class='text-end'>Number of posts: <%= user.posts_counter || 0 %></p>
   </div>
 </section>

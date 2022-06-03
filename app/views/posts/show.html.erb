@@ -1,1 +1,19 @@
-<h1>users/:id/posts/:id => POST ID</h1>
+<div class='blog-card'>
+  <div class='d-flex justify-content-between align-items-center'>
+    <h2>
+      <span>
+        <%= @post.title %> by <%= @post.name %>
+      <span/>
+    </h2>
+    <div class='text-end'>
+      Comments: <%= @post.comments.count || 0 %> 
+      Likes: <%= @post.likes_counter || 0 %> 
+    </div>  
+  </div>
+  <div><%= @post.text %></div>
+</div>
+<div class='blog-card'>
+  <% @post.comments.joins(:user).select('comments.*, users.name').limit(5).each { |comment_| %>
+    <%= render partial: 'comment', object: comment_ %>
+  <% } %>
+</div>
