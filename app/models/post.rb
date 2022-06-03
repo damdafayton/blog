@@ -10,6 +10,7 @@ class Post < ApplicationRecord
   end
 
   def most_recent_comments(limit_ = 5)
-    Comment.where(post_id: id).reverse.slice(0, limit_)
+    Comment.joins(:user).select('comments.*, users.name')
+          .where(post_id: id).limit(limit_).reverse
   end
 end

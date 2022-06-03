@@ -6,7 +6,9 @@ class PostsController < ApplicationController
     @user = User.find(params[:user_id])
     @posts = Post.all.slice((page * 2) - 2, page * 2)
     # reduce post text
-    @posts.each { |post| post.text = "#{post.text.slice(0, 200)}.." if post.text.length > 200 }
+    @posts.each { |post| 
+      post.text = "#{post.text.slice(0, 200)}.." if post.text.length > 200 
+    }
     @user_posts_count = user_posts_count(@user)
   end
 

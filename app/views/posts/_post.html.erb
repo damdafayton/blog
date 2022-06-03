@@ -4,12 +4,12 @@
   </h2>
   <div><%= post.text %></div>
   <div class='text-end'>
-    Comments: <%= post.comments.count || 0 %> 
-    Likes: <%= post.likes_counter || 0 %> 
+    <%= t('comments')%> <%= post.comments.count || 0 %> 
+    <%= t('likes')%> <%= post.likes_counter || 0 %> 
   </div>
   <% if show_comments %>
   <div>
-    <% post.comments.joins(:user).select('comments.*, users.name').limit(5).each { |comment_| %>
+    <% post.most_recent_comments.each { |comment_| %>
       <%= render partial: 'comment', object: comment_ %>
     <% } %>
   </div>

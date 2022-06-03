@@ -6,6 +6,6 @@
     <p class='flex-grow-1'>
       <a href='/users/<%= user.id %>'><%= user.name %></a>
     </p>
-    <p class='text-end'>Number of posts: <%= user.posts_counter || 0 %></p>
+    <p class='text-end'><%= t("number_of_posts")%> <%= user.posts_counter || 0 %></p>
   </div>
 </section>
