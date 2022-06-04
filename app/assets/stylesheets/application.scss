@@ -23,6 +23,10 @@
    height: 150px;
  }
 
+ .color-red{
+   color: red;
+ }
+
  .blog-card{
   @extend .py-3;
   @extend .px-4;

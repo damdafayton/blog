@@ -1,23 +1,27 @@
 <div class='blog-card'>
+
   <div class='d-flex align-items-end mb-2'>
     <h2 class='mb-0'>
       <%= link_to post.title, [post.user, post]%>
     </h2>
-    <% unless @index_view then%>
+    <% unless index_view %>
       <span>
         <%= link_to " by #{post.name}", user_posts_path %>
       </span>
     <% end %>
   </div>
+
   <div><%= post.text %></div>
+
   <div class='text-end'>
     <%= t('comments')%> <%= post.comments.count || 0 %> 
-    <%= t('likes')%> <%= post.likes_counter || 0 %> 
-    <i class="fa-solid fa-heart" aria-hidden="true"></i>
+    <%= t('likes')%> <%= post.likes.count || 0 %> 
+    <i class="fa-solid fa-heart" aria-hidden="true" onclick="send_like(<%= post.id %>)"></i>
   </div>
-  <% if post.comments.length > 0  %>
+  
+  <% if post.comments.length > 0 and show_comment %>
     <div>
-      <% if @index_view %>
+      <% if index_view %>
         <% post.most_recent_comments.each { |comment_| %>
           <%= render partial: 'comment', object: comment_ %>
         <% } %>
@@ -28,4 +32,13 @@
       <% end %>
     </div>
   <% end %>
+
 </div>
+
+<script>
+function send_like(id){
+  console.log('hi', id)  
+  fetch(`/posts/${id}/like`, {method: 'POST'})
+    .then(res=>res.status)
+}
+</script>

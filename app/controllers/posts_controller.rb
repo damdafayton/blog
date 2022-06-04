@@ -12,12 +12,11 @@ class PostsController < ApplicationController
 
     @page_amount = user_posts_count(@user) / 2.to_f
     @page_amount = @page_amount.ceil
-    @index_view = true
+
   end
 
   def show
     @post = Post.joins(:user).select('posts.*, users.name').find(params[:id])
-    @index_view = false
   end
 
   def new
