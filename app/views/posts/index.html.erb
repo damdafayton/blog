@@ -1,7 +1,7 @@
 <%= render 'users/user', user: @user %>
 
 <% @posts.each_with_index { |post_, index_| %>
-  <%= render partial: 'post', locals:{post: post_, index:index_, show_comments: true} %>
+  <%= render partial: 'post', locals:{post: post_, index:index_} %>
 <% } %>
 
 <% if user_posts_more_than?(@user) %>

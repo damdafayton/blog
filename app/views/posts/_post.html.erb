@@ -1,17 +1,31 @@
 <div class='blog-card'>
-  <h2>
-    <%= link_to post.title, [post.user, post]%>
-  </h2>
+  <div class='d-flex align-items-end mb-2'>
+    <h2 class='mb-0'>
+      <%= link_to post.title, [post.user, post]%>
+    </h2>
+    <% unless @index_view then%>
+      <span>
+        <%= link_to " by #{post.name}", user_posts_path %>
+      </span>
+    <% end %>
+  </div>
   <div><%= post.text %></div>
   <div class='text-end'>
     <%= t('comments')%> <%= post.comments.count || 0 %> 
     <%= t('likes')%> <%= post.likes_counter || 0 %> 
+    <i class="fa fa-home" aria-hidden="true"></i>
   </div>
-  <% if show_comments %>
-  <div>
-    <% post.most_recent_comments.each { |comment_| %>
-      <%= render partial: 'comment', object: comment_ %>
-    <% } %>
-  </div>
+  <% if post.comments.length > 0  %>
+    <div>
+      <% if @index_view %>
+        <% post.most_recent_comments.each { |comment_| %>
+          <%= render partial: 'comment', object: comment_ %>
+        <% } %>
+      <% else %>
+        <% post.comments.each { |comment_| %>
+          <%= render partial: 'comment', object: comment_ %>
+        <% } %>
+      <% end %>
+    </div>
   <% end %>
 </div>

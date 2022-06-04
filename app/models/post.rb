@@ -14,6 +14,11 @@ class Post < ApplicationRecord
       .where(post_id: id).limit(limit_).reverse
   end
 
+  def comments
+    Comment.joins(:user).select('comments.*, users.name')
+      .where(post_id: id).reverse
+  end
+
   def comments_with_author_names(limit_ = 5)
     self.comments.joins(:user).select('comments.*, users.name').limit(limit_).reverse
   end

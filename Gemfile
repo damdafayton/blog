@@ -6,7 +6,8 @@ ruby '3.1.2'
 # gem 'erb-formatter'
 # gem 'htmlbeautifier'
 # gem 'erb-lint'
-
+gem 'font-awesome-rails'
+gem 'turbolinks', '~> 5.2.0'
 gem 'bootstrap', '~> 5.1', '>= 5.1.3'
 gem 'sass-rails'
 
