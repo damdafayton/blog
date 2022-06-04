@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   def current_user
-    User.find(2)
+    User.find(3)
   end
 
   def user_posts_count(user_id)

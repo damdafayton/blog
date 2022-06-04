@@ -6,8 +6,8 @@
 
 <% if user_posts_more_than?(@user) %>
   <div class='text-center mt-3'>
-  <% (1..@user_posts_count/2).each { |i| %>
-    <a href='<%= "#{url_for [@user, :posts]}/#{i}" %>'><%= i %></a>
+  <% (1..@page_amount).each { |i| %>
+    <a href='<%= "#{url_for [@user, :posts]}?page=#{i}" %>'><%= i %></a>
   <% } %>
   </div>
 <% end %>

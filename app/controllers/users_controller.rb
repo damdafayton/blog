@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     rescue StandardError
       nil
     end
-    
+
     @user_posts = Post.where(author_id: params[:id]).limit(2)
   end
 end

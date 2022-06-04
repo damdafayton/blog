@@ -7,5 +7,4 @@ module ApplicationHelper
     @user_posts = Post.where(author_id: user)
     @user_posts.length > limit_
   end
-
 end
