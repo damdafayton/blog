@@ -12,10 +12,13 @@
   </div>
   <div><%= @post.text %></div>
 </div>
+
 <% if @post.comments.length > 0 %>
 <div class='blog-card'>
-  <% @post.comments.joins(:user).select('comments.*, users.name').limit(5).each { |comment_| %>
+  <% @post.comments_with_author_names.each { |comment_| %>
     <%= render partial: 'comment', object: comment_ %>
   <% } %>
 </div>
 <% end %>
+
+<%= render partial: 'add_comment' %>

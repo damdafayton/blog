@@ -32,12 +32,12 @@ class PostsController < ApplicationController
       new.html do
         if new_post.save
           # success message
-          flash[:success] = 'Question saved successfully'
+          flash[:success] = 'Post saved successfully'
           # redirect to index
           redirect_to user_posts_url(current_user.id)
         else
           # error message
-          flash.now[:error] = 'Error: Question could not be saved'
+          flash.now[:error] = 'Error: Post could not be saved'
           # render new
           render :new
         end
