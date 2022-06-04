@@ -7,5 +7,4 @@ class Comment < ApplicationRecord
     post = Post.find(post_id)
     post.update(comments_counter: post.comments_counter + (bool_ ? 1 : -1))
   end
-  
 end

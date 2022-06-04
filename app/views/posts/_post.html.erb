@@ -14,8 +14,8 @@
   <div><%= post.text %></div>
 
   <div class='text-end'>
-    <%= t('comments')%> <%= post.comments.count || 0 %> 
-    <%= t('likes')%> <%= post.likes.count || 0 %> 
+    <span><%= t('comments')%> <%= post.comments.count || 0 %></span>
+    <span id='likes_count'><%= t('likes')%> <%= post.likes.count || 0 %></span>
     <i class="fa-solid fa-heart" aria-hidden="true" onclick="send_like(<%= post.id %>)"></i>
   </div>
   
@@ -36,9 +36,14 @@
 </div>
 
 <script>
-function send_like(id){
-  console.log('hi', id)  
-  fetch(`/posts/${id}/like`, {method: 'POST'})
-    .then(res=>res.status)
-}
+  function send_like(id){
+    console.log('hi', id)  
+    fetch(`/posts/${id}/like`, {method: 'POST'})
+      .then(res=>res.json())
+      .then(res=>{
+        const {post_likes_count} = res
+        const el_likes_count = document.querySelector('#likes_count')
+        el_likes_count.innerText = post_likes_count
+  })
+  }
 </script>

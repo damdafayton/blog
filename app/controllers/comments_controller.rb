@@ -16,10 +16,11 @@ class CommentsController < ApplicationController
         end
         redirect_to user_post_path(params[:user_id], params[:post_id])
       end
-    end    
+    end
   end
 
   private
+
   def new_comment_params
     params.require(:comment).permit(:text, :post_id)
   end

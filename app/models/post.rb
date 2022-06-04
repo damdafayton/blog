@@ -20,7 +20,6 @@ class Post < ApplicationRecord
   end
 
   def comments_with_author_names(limit_ = 5)
-    self.comments.joins(:user).select('comments.*, users.name').limit(limit_).reverse
+    comments.joins(:user).select('comments.*, users.name').limit(limit_).reverse
   end
-
 end

@@ -12,7 +12,6 @@ class PostsController < ApplicationController
 
     @page_amount = user_posts_count(@user) / 2.to_f
     @page_amount = @page_amount.ceil
-
   end
 
   def show
@@ -47,6 +46,7 @@ class PostsController < ApplicationController
   end
 
   private
+
   def new_post_params
     params.require(:post).permit(:title, :text, :author_id)
   end
