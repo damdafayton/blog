@@ -1,1 +1,14 @@
-NEW POST
+<%= form_with model: @post, scope: :post, url: posts_path, method: :post, local: true do |f| %>
+<div>
+  <%= f.label :title %><br>
+  <%= f.text_field :title, required: true %>
+</div>
+
+<div>
+  <%= f.label :text %><br>
+  <%= f.text_field :text %>
+</div>
+
+<%= f.submit "Add Question" %>
+
+<% end %>

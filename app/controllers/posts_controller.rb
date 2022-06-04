@@ -18,5 +18,40 @@ class PostsController < ApplicationController
     @post = Post.joins(:user).select('posts.*, users.name').find(params[:id])
   end
 
-  def new; end
+  def new
+    @current_user = current_user
+    @post = Post.new
+  end
+
+  def create
+    # new object from params
+    # respond_to block
+      # if question saves
+        # success message
+        # redirect to index
+      # else
+        # error message
+        # render new
+    new_post = Post.new(params.require(:post).permit(:title, :text, :author_id))
+    new_post.set_author_id(current_user.id)
+    p 'hi'
+
+    # respond_to block
+    respond_to do |new|
+      new.html do
+        if params[:text].present?#new_post.save
+          # success message
+          flash[:success] = "Question saved successfully"
+          # redirect to index
+          redirect_to user_posts_path(current_user.id)
+        else
+          # error message
+          flash.now[:error] = "Error: Question could not be saved"
+          # render new
+          render :new
+        end
+      end
+    end
+
+  end
 end

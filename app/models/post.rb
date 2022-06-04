@@ -13,4 +13,10 @@ class Post < ApplicationRecord
     Comment.joins(:user).select('comments.*, users.name')
       .where(post_id: id).limit(limit_).reverse
   end
+
+  def set_author_id(user_id)
+    self.author_id = user_id
+    p self
+  end
+
 end
