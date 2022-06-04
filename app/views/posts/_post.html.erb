@@ -13,7 +13,7 @@
   <div class='text-end'>
     <%= t('comments')%> <%= post.comments.count || 0 %> 
     <%= t('likes')%> <%= post.likes_counter || 0 %> 
-    <i class="fa fa-home" aria-hidden="true"></i>
+    <i class="fa-solid fa-heart" aria-hidden="true"></i>
   </div>
   <% if post.comments.length > 0  %>
     <div>
