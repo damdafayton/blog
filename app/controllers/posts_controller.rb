@@ -24,34 +24,29 @@ class PostsController < ApplicationController
   end
 
   def create
-    # new object from params
-    # respond_to block
-      # if question saves
-        # success message
-        # redirect to index
-      # else
-        # error message
-        # render new
-    new_post = Post.new(params.require(:post).permit(:title, :text, :author_id))
-    new_post.set_author_id(current_user.id)
-    p 'hi'
+    new_post = Post.new(new_post_params)
+    new_post.author_id = current_user.id
 
     # respond_to block
     respond_to do |new|
       new.html do
-        if params[:text].present?#new_post.save
+        if new_post.save
           # success message
-          flash[:success] = "Question saved successfully"
+          flash[:success] = 'Question saved successfully'
           # redirect to index
-          redirect_to user_posts_path(current_user.id)
+          redirect_to user_posts_url(current_user.id)
         else
           # error message
-          flash.now[:error] = "Error: Question could not be saved"
+          flash.now[:error] = 'Error: Question could not be saved'
           # render new
           render :new
         end
       end
     end
+  end
 
+  private
+  def new_post_params
+    params.require(:post).permit(:title, :text, :author_id)
   end
 end

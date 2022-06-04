@@ -1,14 +1,7 @@
 <%= form_with model: @post, scope: :post, url: posts_path, method: :post, local: true do |f| %>
-<div>
-  <%= f.label :title %><br>
-  <%= f.text_field :title, required: true %>
-</div>
 
-<div>
-  <%= f.label :text %><br>
-  <%= f.text_field :text %>
-</div>
+<%= render partial: 'form', locals: {f:f}%>
 
-<%= f.submit "Add Question" %>
+<%= f.submit "Add Post", class: "btn btn-primary", data: {disable_with: "Loading..."} %>
 
 <% end %>

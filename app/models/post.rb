@@ -14,9 +14,4 @@ class Post < ApplicationRecord
       .where(post_id: id).limit(limit_).reverse
   end
 
-  def set_author_id(user_id)
-    self.author_id = user_id
-    p self
-  end
-
 end
