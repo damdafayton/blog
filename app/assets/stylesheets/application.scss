@@ -17,6 +17,16 @@
  *= require_self
  */
 
+
+.blog-card{
+  @extend .py-3;
+  @extend .px-4;
+  @extend .mt-2;
+  @extend .border;
+  @extend .border-2;
+  @extend .shadow-sm;
+}
+
  .user-image{
    height: 150px;
  }

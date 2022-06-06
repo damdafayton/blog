@@ -1,6 +1,6 @@
 <div class='blog-card'>
   <h2>
-    <a href='/users/<%= post.author_id %>/posts/<%= post.id %>'><%= post.title %><a/>
+    <a href='/authors/<%= post.author_id %>/posts/<%= post.id %>'><%= post.title %><a/>
   </h2>
   <div><%= post.text %></div>
   <div class='text-end'>
@@ -9,7 +9,7 @@
   </div>
   <% if show_comments %>
   <div>
-    <% post.comments.joins(:user).select('comments.*, users.name').limit(5).each { |comment_| %>
+    <% post.comments.joins(:author).select('comments.*, users.name').limit(5).each { |comment_| %>
       <%= render partial: 'comment', object: comment_ %>
     <% } %>
   </div>

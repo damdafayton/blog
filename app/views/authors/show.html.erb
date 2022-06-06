@@ -1,5 +1,5 @@
 <section class="">
-  <%= render partial: 'users/user', object: @user %>
+  <%= render partial: 'authors/user', object: @user %>
   <div class='blog-card'>
     <h2>Bio:</h2>
     <div><%= @user.bio %></div>
@@ -13,7 +13,7 @@
   </div>
   <% if @user_posts_length > 3 then %>
     <div class='text-center mt-3'>
-      <a class='btn btn-secondary' href='/users/<%= @user.id %>/posts'>
+      <a class='btn btn-secondary' href='/authors/<%= @user.id %>/posts'>
         See all posts
       </a>
     </div>
