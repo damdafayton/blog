@@ -1,5 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :user, class_name: 'User', foreign_key: 'author_id'
+  has_many :comments
+  has_many :likes
 
   def update_post_counter_of_user(bool_)
     # if argument is true increase by 1, if it's false decrease by 1
