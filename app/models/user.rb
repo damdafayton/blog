@@ -3,7 +3,8 @@ class User < ApplicationRecord
   has_many :comments, foreign_key: 'author_id'
   has_many :likes, dependent: :destroy, class_name: 'Like', foreign_key: 'author_id'
 
-  def most_recent_comments(limit_ = 3)
-    Comment.where(author_id: id).reverse.slice(0, limit_)
+  def most_recent_posts(limit_ = 3)
+    # Posts.where(author_id: id).reverse.slice(0, limit_)
+    self.posts.order(created_at: :desc).limit(limit_)
   end
 end

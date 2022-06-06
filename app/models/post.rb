@@ -3,13 +3,21 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :likes
 
-  def update_post_counter_of_user(bool_)
-    # if argument is true increase by 1, if it's false decrease by 1
-    user = User.find(author_id)
-    user.update(posts_counter: user.posts_counter + (bool_ ? 1 : -1))
-  end
+  after_save :update_post_counter_of_user
+  after_destroy :update_post_counter_of_user('down')
 
   def most_recent_comments(limit_ = 5)
-    Comment.where(post_id: id).reverse.slice(0, limit_)
+    self.comments.reverse.slice(0, limit_)
   end
+
+  private
+
+  def update_post_counter_of_user(arg='up')
+    if arg=='up'
+      self.author.increment!(:posts_counter)
+    elsif arg=='down'
+      self.author.decrement!(:posts_counter)
+    end
+  end
+
 end
