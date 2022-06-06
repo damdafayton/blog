@@ -13,6 +13,9 @@ first_post = Post.create(author_id: first_user, title: 'Hello', text: 'This is m
 Post.create(author_id: first_user, title: 'Hello2', text: 'This is my first post_2')
 Post.create(author_id: first_user, title: 'Hello3', text: 'This is my first post_3')
 Post.create(author_id: first_user, title: 'Hello4', text: 'This is my first post_4')
+Post.create(author_id: second_user, title: 'Hello', text: 'This is my first post')
+Post.create(author_id: 1, title: 'Hi 1', text: 'This is my first post')
+Post.create(author_id: 1, title: 'Hi 2', text: 'This is my second post')
 
 Comment.create(post_id: first_post, author_id: second_user, text: 'Hi Tom!' )
 Comment.create(post_id: first_post, author_id: second_user, text: 'Hi Tom!' )

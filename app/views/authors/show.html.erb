@@ -1,0 +1,21 @@
+<section class="">
+  <%= render partial: 'authors/user', object: @user %>
+  <div class='blog-card'>
+    <h2>Bio:</h2>
+    <div><%= @user.bio %></div>
+  </div>
+</section>
+<section>
+  <div>
+  <% @user_posts.each_with_index { |post_, index_| %>
+    <%= render partial: 'posts/post', locals:{post: post_, index: index_ , show_comments: false} %>
+  <% } %>
+  </div>
+  <% if @user_posts_length > 3 then %>
+    <div class='text-center mt-3'>
+      <a class='btn btn-secondary' href='/authors/<%= @user.id %>/posts'>
+        See all posts
+      </a>
+    </div>
+  <% end %>
+</section>
