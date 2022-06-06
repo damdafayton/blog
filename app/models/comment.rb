@@ -4,7 +4,7 @@ class Comment < ApplicationRecord
 
   after_save :update_comments_counter_of_post
   after_destroy -> { update_comments_counter_of_post('down') }
-  
+
   private
 
   def update_comments_counter_of_post(arg = 'up')
