@@ -5,13 +5,26 @@
 
 - Ruby, Rails
 
+## Run and test
+You must have Ruby and Rails installed.
+[Documentation to install Rails.](https://guides.rubyonrails.org/v5.0/getting_started.html)
 
-## How to run
+
+### How to run
 
 ```
-git clone https://github.com/damdafayton/blog
-cd rails-project
-rails server
+$ git clone https://github.com/damdafayton/blog
+$ cd blog
+$ bundle install
+$ rails s
+```
+
+### How to test
+```
+$ git clone https://github.com/damdafayton/blog
+$ cd blog
+$ bundle install
+$ bundle exec rspec
 ```
 
 ## Authors
