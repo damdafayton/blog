@@ -15,8 +15,8 @@
 
   <div class='text-end'>
     <span><%= t('comments')%> <%= post.comments.count || 0 %></span>
-    <span id='likes_count'><%= t('likes')%> <%= post.likes.count || 0 %></span>
-    <i class="fa-solid fa-heart" aria-hidden="true" onclick="send_like(<%= post.id %>)"></i>
+    <span><%= t('likes')%> </span><span id="<%= 'likes_count_' + post.id.to_s %>"><%= post.likes_counter || 0 %></span>
+    <i class="fa-solid fa-heart cursor-pointer" aria-hidden="true" onclick="send_like(<%= post.id %>)"></i>
   </div>
   
   <% if post.comments.count > 0 and show_comment %>
@@ -42,7 +42,7 @@
       .then(res=>res.json())
       .then(res=>{
         const {post_likes_count} = res
-        const el_likes_count = document.querySelector('#likes_count')
+        const el_likes_count = document.querySelector(`#likes_count_${id}`)
         el_likes_count.innerText = post_likes_count
   })
   }
