@@ -3,10 +3,10 @@
   <%= render partial: 'post', locals:{post: post_, index:index_, index_view: true, show_comment: true} %>
 <% } %>
 
-<% if user_posts_more_than?(@user) %>
+<% if author_posts_more_than?(@user) %>
   <div class='text-center mt-3'>
   <% (1..@page_amount).each { |i| %>
-    <a href='<%= "#{url_for [@user, :posts]}?page=#{i}" %>'><%= i %></a>
+    <a href='<%= "#{author_posts_path(:author_id => @user.id)}?page=#{i}" %>'><%= i %></a>
   <% } %>
   </div>
 <% end %>

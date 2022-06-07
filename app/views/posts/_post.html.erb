@@ -2,11 +2,11 @@
 
   <div class='d-flex align-items-end mb-2'>
     <h2 class='mb-0'>
-      <%= link_to post.title, [post.user, post]%>
+      <%= link_to post.title, author_post_path(post.author, post.id) %>
     </h2>
     <% unless index_view %>
       <span>
-        <%= link_to " by #{post.name}", user_posts_path %>
+        <%= link_to " by #{post.name}", author_posts_path %>
       </span>
     <% end %>
   </div>
@@ -19,14 +19,14 @@
     <i class="fa-solid fa-heart" aria-hidden="true" onclick="send_like(<%= post.id %>)"></i>
   </div>
   
-  <% if post.comments.length > 0 and show_comment %>
+  <% if post.comments.count > 0 and show_comment %>
     <div>
       <% if index_view %>
-        <% post.most_recent_comments.each { |comment_| %>
+        <% post.comments_with_author_names.each { |comment_| %>
           <%= render partial: 'comment', object: comment_ %>
         <% } %>
       <% else %>
-        <% post.comments.each { |comment_| %>
+        <% post.comments_with_author_names(nil).each { |comment_| %>
           <%= render partial: 'comment', object: comment_ %>
         <% } %>
       <% end %>

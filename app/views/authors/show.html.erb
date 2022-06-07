@@ -13,7 +13,7 @@
   </div>
   <% if user_posts_more_than?(@user) then %>
     <div class='text-center mt-3'>
-      <%= link_to t("see_all"), [@user, :posts], class:'btn btn-secondary' %>
+      <%= link_to t("see_all"), author_posts_path(:author_id=>@user.id), class:'btn btn-secondary' %>
     </div>
   <% end %>
 </section>

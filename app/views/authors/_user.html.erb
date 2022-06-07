@@ -5,7 +5,7 @@
   <div class='d-flex flex-column px-4 flex-grow-1'>
       
     <p class='flex-grow-1'>
-      <%= link_to user.name, user %>
+      <%= link_to user.name, author_path(:id=>user.id) %>
     </p>
     <p class='text-end'><%= t("number_of_posts")%> <%= user.posts_counter || 0 %></p>
   </div>

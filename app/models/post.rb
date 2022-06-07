@@ -10,14 +10,8 @@ class Post < ApplicationRecord
     comments.order(created_at: :desc).limit(limit_)
   end
 
-  def comments
-    Comment.joins(:author).select('comments.*, authors.name')
-      .where(post_id: id).reverse
-  end
-
   def comments_with_author_names(limit_ = 5)
-    comments.joins(:user).select('comments.*, users.name').limit(limit_).reverse
-    comments.order(created_at: :desc).limit(limit_)
+    comments.joins(:author).select('comments.*, users.name as name').order(created_at: :desc).limit(limit_)
   end
 
   private
