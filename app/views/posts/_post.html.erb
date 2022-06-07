@@ -19,7 +19,7 @@
     <i class="fa-solid fa-heart cursor-pointer" aria-hidden="true" onclick="send_like(<%= post.id %>)"></i>
   </div>
   
-  <% if post.comments.count > 0 and show_comment %>
+  <% if post.comments_counter.to_i > 0 and show_comment %>
     <div>
       <% if index_view %>
         <% post.comments_with_author_names.each { |comment_| %>
