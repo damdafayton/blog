@@ -1,6 +1,8 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "custom";
 @import "bootstrap";
+// @import "font-awesome-sprockets";
+@import "font-awesome";
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
@@ -18,6 +20,14 @@
  *= require_self
  */
 
+.user-image {
+  height: 150px;
+}
+
+.color-red {
+  color: red;
+}
+
 .blog-card {
   @extend .py-3;
   @extend .px-4;
@@ -25,8 +35,4 @@
   @extend .border;
   @extend .border-2;
   @extend .shadow-sm;
-}
-
-.user-image {
-  height: 150px;
 }

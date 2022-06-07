@@ -1,17 +1,49 @@
 <div class='blog-card'>
-  <h2>
-    <a href='/authors/<%= post.author_id %>/posts/<%= post.id %>'><%= post.title %><a/>
-  </h2>
+
+  <div class='d-flex align-items-end mb-2'>
+    <h2 class='mb-0'>
+      <%= link_to post.title, author_post_path(post.author, post.id) %>
+    </h2>
+    <% unless index_view %>
+      <span>
+        <%= link_to " by #{post.name}", author_posts_path %>
+      </span>
+    <% end %>
+  </div>
+
   <div><%= post.text %></div>
+
   <div class='text-end'>
-    Comments: <%= post.comments.count || 0 %> 
-    Likes: <%= post.likes_counter || 0 %> 
+    <span><%= t('comments')%> <%= post.comments.count || 0 %></span>
+    <span id='likes_count'><%= t('likes')%> <%= post.likes.count || 0 %></span>
+    <i class="fa-solid fa-heart" aria-hidden="true" onclick="send_like(<%= post.id %>)"></i>
   </div>
-  <% if show_comments %>
-  <div>
-    <% post.comments.joins(:author).select('comments.*, users.name').limit(5).each { |comment_| %>
-      <%= render partial: 'comment', object: comment_ %>
-    <% } %>
-  </div>
+  
+  <% if post.comments.count > 0 and show_comment %>
+    <div>
+      <% if index_view %>
+        <% post.comments_with_author_names.each { |comment_| %>
+          <%= render partial: 'comment', object: comment_ %>
+        <% } %>
+      <% else %>
+        <% post.comments_with_author_names(nil).each { |comment_| %>
+          <%= render partial: 'comment', object: comment_ %>
+        <% } %>
+      <% end %>
+    </div>
   <% end %>
+
 </div>
+
+<script>
+  function send_like(id){
+    console.log('hi', id)  
+    fetch(`/posts/${id}/like`, {method: 'POST'})
+      .then(res=>res.json())
+      .then(res=>{
+        const {post_likes_count} = res
+        const el_likes_count = document.querySelector('#likes_count')
+        el_likes_count.innerText = post_likes_count
+  })
+  }
+</script>

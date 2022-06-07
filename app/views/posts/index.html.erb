@@ -1,11 +1,12 @@
 <%= render 'authors/user', user: @user %>
 <% @posts.each_with_index { |post_, index_| %>
-  <%= render partial: 'post', locals:{post: post_, index:index_, show_comments: true} %>
+  <%= render partial: 'post', locals:{post: post_, index:index_, index_view: true, show_comment: true} %>
 <% } %>
-<% if @user_posts_count > 2 %>
+
+<% if author_posts_more_than?(@user) %>
   <div class='text-center mt-3'>
-  <% (1..@user_posts_count/2).each { |i| %>
-    <a href='/authors/<%=@user.id%>/posts?page=<%= i %>'><%= i %></a>
+  <% (1..@page_amount).each { |i| %>
+    <a href='<%= "#{author_posts_path(:author_id => @user.id)}?page=#{i}" %>'><%= i %></a>
   <% } %>
   </div>
 <% end %>

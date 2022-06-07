@@ -1,15 +1,53 @@
 class PostsController < ApplicationController
   def index
-    p params
+    # make url_helper for pagination
     page = params[:page].to_i
-    page = [page, 1].max
+    show_until_this_post = [page, 1].max * 2
     @user = User.find(params[:author_id])
-    @posts = Post.all.slice((page * 2) - 2, page * 2)
-    @posts.each { |post| post.text = "#{post.text.slice(0, 200)}.." if post.text.length > 200 }
-    @user_posts_count = user_posts_count(@user)
+    @posts = Post.all.slice(show_until_this_post - 2, show_until_this_post)
+    # reduce post text
+    @posts.each do |post|
+      post.text = "#{post.text.slice(0, 200)}.." if post.text.length > 200
+    end
+
+    @page_amount = user_posts_count(@user) / 2.to_f
+    @page_amount = @page_amount.ceil
   end
 
   def show
     @post = Post.joins(:author).select('posts.*, users.name').find(params[:id])
+  end
+
+  def new
+    @current_user = current_user
+    @post = Post.new
+  end
+
+  def create
+    new_post = Post.new(new_post_params)
+    new_post.author_id = current_user.id
+
+    # respond_to block
+    respond_to do |new|
+      new.html do
+        if new_post.save
+          # success message
+          flash[:success] = 'Post saved successfully'
+          # redirect to index
+          redirect_to user_posts_url(current_user.id)
+        else
+          # error message
+          flash.now[:error] = 'Error: Post could not be saved'
+          # render new
+          render :new
+        end
+      end
+    end
+  end
+
+  private
+
+  def new_post_params
+    params.require(:post).permit(:title, :text, :author_id)
   end
 end

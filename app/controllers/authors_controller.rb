@@ -1,6 +1,6 @@
 class AuthorsController < ApplicationController
   def index
-    @users = User.all
+    @authors = User.all
   end
 
   def show
@@ -9,8 +9,7 @@ class AuthorsController < ApplicationController
     rescue StandardError
       nil
     end
-    @user_posts = Post.where(author_id: params[:id])
-    @user_posts_length = @user_posts.length
-    @user_posts = @user_posts.limit(3)
+
+    @user_posts = Post.where(author_id: params[:id]).limit(2)
   end
 end

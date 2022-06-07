@@ -1,5 +1,11 @@
-<section class="text-center pt-3 px-4"> 
-  <h1>Welcome to Blog</h1>
-  <p>This App is built by Ruby/Rails</p>
+<section class="text-center pt-3 px-4 row row-cols-3"> 
+  <div></div>
+  <div>
+    <h1><a href='/'>Blog</a></h1>
+    <p>This App is built by Ruby/Rails</p>
+  </div>
+  <div class='d-flex justify-content-end align-items-end'>
+    <%= link_to 'New Post', new_post_path %>
+  </div>
 </section>
 

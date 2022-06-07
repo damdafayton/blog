@@ -99,9 +99,10 @@ GEM
     erubi (1.10.0)
     execjs (2.8.1)
     ffi (1.15.5-x64-mingw-ucrt)
+    font-awesome-sass (6.1.1)
+      sassc (~> 2.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
-    htmlbeautifier (1.4.2)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.1.0)
@@ -255,6 +256,9 @@ GEM
     turbo-rails (1.0.1)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
+    turbolinks (5.2.1)
+      turbolinks-source (~> 5.2)
+    turbolinks-source (5.2.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     tzinfo-data (1.2022.1)
@@ -286,7 +290,7 @@ DEPENDENCIES
   capybara
   debug
   ffi
-  htmlbeautifier
+  font-awesome-sass
   importmap-rails
   jbuilder
   pg (~> 1.1)
@@ -302,6 +306,7 @@ DEPENDENCIES
   sprockets-rails
   stimulus-rails
   turbo-rails (~> 1.0.0)
+  turbolinks (~> 5.2.0)
   tzinfo-data
   web-console
   webdrivers
