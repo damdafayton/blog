@@ -14,7 +14,7 @@
   <div><%= post.text %></div>
 
   <div class='text-end'>
-    <span><%= t('comments')%> <%= post.comments.count || 0 %></span>
+    <span><%= t('comments')%> <%= post.comments_counter || 0 %></span>
     <span><%= t('likes')%> </span><span id="<%= 'likes_count_' + post.id.to_s %>"><%= post.likes_counter || 0 %></span>
     <i class="fa-solid fa-heart cursor-pointer" aria-hidden="true" onclick="send_like(<%= post.id %>)"></i>
   </div>
