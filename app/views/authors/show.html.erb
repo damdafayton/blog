@@ -11,7 +11,7 @@
     <%= render partial: 'posts/post', locals:{post: post_, index: index_ , index_view: true, show_comment: false} %>
   <% } %>
   </div>
-  <% if user_posts_more_than?(@user) then %>
+  <% if author_posts_more_than?(@user) then %>
     <div class='text-center mt-3'>
       <%= link_to t("see_all"), author_posts_path(:author_id=>@user.id), class:'btn btn-secondary' %>
     </div>
