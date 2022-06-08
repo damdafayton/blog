@@ -10,6 +10,6 @@ class AuthorsController < ApplicationController
       nil
     end
 
-    @user_posts = Post.where(author_id: params[:id]).limit(2)
+    @user_posts = @user.most_recent_posts(2)
   end
 end

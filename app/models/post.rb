@@ -2,6 +2,9 @@ class Post < ApplicationRecord
   belongs_to :author, class_name: 'User', foreign_key: 'author_id'
   has_many :comments
   has_many :likes
+  validates :author_id, presence: true, numericality: { only_integer: true }
+  validates :title, presence: true, length: { in: 1..100 }
+  validates :text, presence: true, length: { in: 1..5000 }
 
   after_save :update_post_counter_of_user
   after_destroy -> { update_post_counter_of_user('down') }

@@ -1,11 +1,13 @@
 class PostsController < ApplicationController
   def index
     # make url_helper for pagination
-    page = params[:page].to_i
+    page = [params[:page].to_i, 1].max
     posts_per_page = 2
     start_from_this_post = (page-1) * posts_per_page
     @user = User.find(params[:author_id])
-    @posts = @user.posts.slice(start_from_this_post, 2)
+    @posts = @user.most_recent_posts(start_from_this_post + posts_per_page)
+      .slice(start_from_this_post, posts_per_page)
+    p @posts
     # reduce post text
     @posts.each do |post|
       post.text = "#{post.text.slice(0, 200)}.." if post.text.length > 200
