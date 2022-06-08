@@ -22,6 +22,20 @@ RSpec.describe :Post, type: :model do
   end
 
   it 'author_id should be integer' do
-    expect(subject.author_id).to be_an(Integer)
+    subject.author_id = 'hello'
+    # expect(subject.author_id).to be_an(Integer)
+    expect(subject).to_not be_valid
+  end
+
+  it 'title should not have more than 100 charachters' do
+    # expect(subject.title).to have_at_most(100).charachters
+    subject.title = 'a'*101
+    expect(subject).to_not be_valid
+  end
+
+  it 'text should not have more than 5000 charachters' do
+    # expect(subject.title).to have_at_most(100).charachters
+    subject.title = 'a'*5001
+    expect(subject).to_not be_valid
   end
 end
