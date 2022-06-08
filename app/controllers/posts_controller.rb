@@ -35,7 +35,7 @@ class PostsController < ApplicationController
           # success message
           flash[:success] = 'Post saved successfully'
           # redirect to index
-          redirect_to user_posts_url(current_user.id)
+          redirect_to author_posts_url(current_user.id)
         else
           # error message
           flash.now[:error] = 'Error: Post could not be saved'
