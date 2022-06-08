@@ -12,6 +12,9 @@
   <body class='pb-5'>
   <main class='px-3 px-sm-5'>
     <%= render "layouts/nav" %>
+    <% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: 'my-1' %>
+    <% end -%>
     <%= yield %>
   </main>
   </body>

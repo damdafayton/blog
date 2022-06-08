@@ -1,10 +1,13 @@
 class PostsController < ApplicationController
   def index
     # make url_helper for pagination
-    page = params[:page].to_i
-    show_until_this_post = [page, 1].max * 2
+    page = [params[:page].to_i, 1].max
+    posts_per_page = 2
+    start_from_this_post = (page - 1) * posts_per_page
     @user = User.find(params[:author_id])
-    @posts = Post.all.slice(show_until_this_post - 2, show_until_this_post)
+    @posts = @user.most_recent_posts(start_from_this_post + posts_per_page)
+      .slice(start_from_this_post, posts_per_page)
+    p @posts
     # reduce post text
     @posts.each do |post|
       post.text = "#{post.text.slice(0, 200)}.." if post.text.length > 200
@@ -15,7 +18,8 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.joins(:author).select('posts.*, users.name').find(params[:id])
+    # @post = Post.joins(:author).select('posts.*, users.name').find(params[:id])
+    @post = Post.includes(:author).find(params[:id])
   end
 
   def new
@@ -34,7 +38,7 @@ class PostsController < ApplicationController
           # success message
           flash[:success] = 'Post saved successfully'
           # redirect to index
-          redirect_to user_posts_url(current_user.id)
+          redirect_to author_posts_url(current_user.id)
         else
           # error message
           flash.now[:error] = 'Error: Post could not be saved'

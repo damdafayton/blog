@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
           # error message
           flash.now[:error] = 'Error: Comment could not be saved'
         end
-        redirect_to user_post_path(params[:user_id], params[:post_id])
+        redirect_to author_post_path(params[:author_id], params[:post_id])
       end
     end
   end

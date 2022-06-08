@@ -7,7 +7,7 @@ class LikesController < ApplicationController
       # success message
       flash[:success] = 'New like'
       # redirect to index
-      post_likes_count = Post.find(params[:id]).likes.count
+      post_likes_count = Post.find(params[:id]).likes_counter
       p post_likes_count
       render json: { post_likes_count: }, status: 200
     else
