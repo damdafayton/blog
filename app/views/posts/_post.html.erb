@@ -2,7 +2,7 @@
 
   <div class='d-flex align-items-end mb-2'>
     <h2 class='mb-0'>
-      <%= link_to post.title, author_post_path(post.author, post.id) %>
+      <%= link_to post.title, author_post_path(post.author.id, post.id) %>
     </h2>
     <% unless index_view %>
       <span>
