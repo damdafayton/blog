@@ -18,7 +18,8 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.joins(:author).select('posts.*, users.name').find(params[:id])
+    # @post = Post.joins(:author).select('posts.*, users.name').find(params[:id])
+    @post = Post.includes(:author).find(params[:id])
   end
 
   def new

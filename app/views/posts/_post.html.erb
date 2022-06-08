@@ -6,7 +6,7 @@
     </h2>
     <% unless index_view %>
       <span>
-        <%= link_to " by #{post.name}", author_posts_path %>
+        <%= link_to " by #{post.author.name}", author_posts_path %>
       </span>
     <% end %>
   </div>
