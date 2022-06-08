@@ -16,8 +16,7 @@ class Post < ApplicationRecord
   def comments_with_author_names(limit_ = 5)
     # comments.joins(:author).select('comments.*, users.name as name').order(created_at: :desc).limit(limit_)
     # comments = Comment.includes(:author).where(post_id: self.id)
-    comments = self.comments.includes(:author)
-    comments
+    comments.includes(:author).limit(limit_)
   end
 
   private

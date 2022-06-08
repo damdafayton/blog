@@ -67,10 +67,10 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'rspec-rails', '6.0.0.rc1'
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'bullet'
-  gem 'xmpp4r'
+  gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'slack-notifier'
+  gem 'xmpp4r'
 end
 
 group :development do
