@@ -13,7 +13,7 @@
 
     <div class='text-end d-flex flex-column justify-content-between'>
       <div>
-      <% if current_user.id == post.author_id %>
+      <% if current_user&.id == post.author_id %>
         <label for="delete-post-<%=post.id%>">
           <i class="fa-solid fa-trash cursor-pointer" aria-hidden="true"></i>
         </label>
