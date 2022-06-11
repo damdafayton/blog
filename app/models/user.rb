@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
   # User::Roles
   # The available roles
-  ROLES = %i[admin moderator author banned]
+  ROLES = %i[admin moderator author banned].freeze
 
   def is?(requested_role)
     role == requested_role.to_s

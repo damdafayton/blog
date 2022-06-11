@@ -24,11 +24,10 @@ class CommentsController < ApplicationController
   def destroy
     if @comment.destroy
       flash[:success] = 'Comment deleted successfully'
-      redirect_back(fallback_location: root_path)
     else
       flash[:error] = 'Error: Comment could not be deleted'
-      redirect_back(fallback_location: root_path)
     end
+    redirect_back(fallback_location: root_path)
   end
 
   private
