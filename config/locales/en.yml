@@ -39,6 +39,8 @@ en:
   likes: "Likes:"
   unauthorized:
     default: "You are not authorized!"
+    destroy:
+      all: "You are not authorized to %{action} this post."
     create:
       # comment: "Default error message text3."
       default: "You are not authorized!"

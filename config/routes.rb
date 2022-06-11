@@ -9,8 +9,8 @@ Rails.application.routes.draw do
     end
   end
    # get 'posts/new', to: 'posts#new', as: 'new_post' # new
-  resources :posts, only:[:create, :new, :edit, :delete]
-  resources :comments, only:[:new, :edit, :delete]
+  resources :posts, only:[:create, :new, :edit, :destroy]
+  resources :comments, only:[:new, :edit, :destroy]
   post 'posts/:id/like', to: 'likes#index', as: 'like_action'
   # controller: 'posts', action: 'like'
   # , to: 'posts#like', as: 'like_post'

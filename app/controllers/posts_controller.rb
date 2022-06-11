@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  # load_and_authorize_resource
+  load_and_authorize_resource
 
   def index
     # make url_helper for pagination
@@ -31,7 +31,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    new_post = Post.new(new_post_params)
+    new_post = Post.new(create_params)
     new_post.author_id = current_user.id
 
     # respond_to block
@@ -52,9 +52,19 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    if @post.destroy
+      flash[:success] = 'Post deleted successfully'
+      redirect_to author_posts_path(author_id: current_user.id)
+    else
+      flash.now[:error] = 'Error: Post could not be deleted'
+      redirect_back(fallback_location: root_path)
+    end
+  end
+
   private
 
-  def new_post_params
+  def create_params
     params.require(:post).permit(:title, :text, :author_id)
   end
 end

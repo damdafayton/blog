@@ -12,10 +12,10 @@ class User < ApplicationRecord
 
   # User::Roles
   # The available roles
-  Roles = [ :admin , :default ]
+  ROLES = %i[admin moderator author banned]
 
-  def is?( requested_role )
-    self.role == requested_role.to_s
+  def is?(requested_role)
+    role == requested_role.to_s
   end
 
   def most_recent_posts(limit_ = 3)
