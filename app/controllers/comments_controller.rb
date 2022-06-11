@@ -1,6 +1,8 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource
+
   def create
-    new_comment = Comment.new(new_comment_params)
+    new_comment = Comment.new(create_params)
     new_comment.author_id = current_user.id
     p new_comment
     p params
@@ -21,7 +23,7 @@ class CommentsController < ApplicationController
 
   private
 
-  def new_comment_params
+  def create_params # use create_ for cancancan
     params.require(:comment).permit(:text, :post_id)
   end
 end
