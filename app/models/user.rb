@@ -10,6 +10,14 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { in: 1..100 }
   validates :bio, presence: true, length: { in: 1..5000 }
 
+  # User::Roles
+  # The available roles
+  Roles = [ :admin , :default ]
+
+  def is?( requested_role )
+    self.role == requested_role.to_s
+  end
+
   def most_recent_posts(limit_ = 3)
     # Posts.where(author_id: id).reverse.slice(0, limit_)
     posts.includes(:author).order(created_at: :desc).limit(limit_)

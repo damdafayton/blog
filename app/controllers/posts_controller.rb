@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
+  
   def index
     # make url_helper for pagination
     page = [params[:page].to_i, 1].max
