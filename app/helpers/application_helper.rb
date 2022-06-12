@@ -8,6 +8,6 @@ module ApplicationHelper
   end
 
   def flash_messages_for(object)
-    render(:partial => 'layout/flash', :locals => {:object => object})
+    render(partial: 'layout/flash', locals: { object: })
   end
 end
