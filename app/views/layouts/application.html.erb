@@ -12,10 +12,9 @@
   <body class='pb-5'>
   <main class='px-3 px-sm-5'>
     <%= render "layouts/nav" %>
-    <% flash.each do |name, msg| -%>
-      <%= content_tag :div, msg, class: "#{name} my-1" %>
-    <% end -%>
+    <%= render "layouts/flash" %>
     <%= yield %>
   </main>
+  <%= javascript_include_tag "application" %>
   </body>
 </html>

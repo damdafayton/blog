@@ -23,10 +23,14 @@
       <div>
         <span><%= t('comments')%> <%= post.comments_counter || 0 %></span>
         <span><%= t('likes')%> </span><span id="<%= 'likes_count_' + post.id.to_s %>"><%= post.likes_counter || 0 %></span>
-        <label for= "STOP_like-post-<%= post.id %>"> 
-          <i class="fa-solid fa-heart cursor-pointer" aria-hidden="true" onclick="send_like(<%= post.id %>)"></i>
+        <label for= "like-post-<%= post.id %>"> 
+          <i class="fa-solid fa-heart cursor-pointer" aria-hidden="true" 
+          ></i>
          </label>
-        <%= button_to 'like', like_action_path(post.id), method: :post, id: "like-post-#{post.id}", class: 'd-none', :form => { "data-type" => "json" }  %>
+        <%= button_to('like', like_action_path(post.id), 
+            id: "like-post-#{post.id}", 
+            class: 'd-none', 
+            remote: true) %>
       </div>
     </div>
   </div>
