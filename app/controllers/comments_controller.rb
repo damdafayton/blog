@@ -4,8 +4,7 @@ class CommentsController < ApplicationController
   def create
     new_comment = Comment.new(create_params)
     new_comment.author_id = current_user.id
-    p new_comment
-    p params
+
     # respond_to block
     respond_to do |new|
       new.html do

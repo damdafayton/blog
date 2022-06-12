@@ -9,7 +9,6 @@ class PostsController < ApplicationController
     @user = User.find(params[:author_id])
     @posts = @user.most_recent_posts(start_from_this_post + posts_per_page)
       .slice(start_from_this_post, posts_per_page)
-    p @posts
     # reduce post text
     @posts.each do |post|
       post.text = "#{post.text.slice(0, 200)}.." if post.text.length > 200
@@ -20,7 +19,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    p 'user = ', current_user
     # @post = Post.joins(:author).select('posts.*, users.name').find(params[:id])
     @post = Post.includes(:author).find(params[:id])
   end

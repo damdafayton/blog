@@ -9,7 +9,7 @@ require 'rails_helper'
 # When I click a user's post, it redirects me to that post's show page.
 # When I click to see all posts, it redirects me to the user's post's index page.
 
-RSpec.describe 'User show page,' do
+RSpec.describe 'Author show page,' do
   before do
     @user = User.find(1)
     visit author_path(@user.id)
