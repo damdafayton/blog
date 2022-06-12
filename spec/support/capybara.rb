@@ -1,5 +1,3 @@
-# :js, :selenium, :selenium_chrome
-
 JS_DRIVER = :selenium_chrome_headless
 
 Capybara.default_driver = :rack_test

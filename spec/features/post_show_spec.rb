@@ -38,7 +38,6 @@ RSpec.describe 'Author Post show page,' do
 
     it 'name of each commentor' do
       commentor = @post.comments[-1].author.name
-      p commentor
       expect(page).to have_content(commentor)
     end
 
