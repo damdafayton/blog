@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  include Turbo::Redirection
+
   protect_from_forgery with: :exception, unless: -> { request.format.json? }
 
   before_action :update_allowed_parameters, if: :devise_controller?

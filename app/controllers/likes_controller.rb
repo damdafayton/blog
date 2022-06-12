@@ -4,6 +4,7 @@ class LikesController < ApplicationController
 
   def index
     respond_to do |format|
+      format.json {p 'JSON REQUEST'}
       format.js do
         p 'RESPONDING'
         if current_user
@@ -13,7 +14,8 @@ class LikesController < ApplicationController
             # flash[:success] = 'New like'
             # redirect to index
             post_likes_count = Post.find(params[:id]).likes_counter
-            render json: { success: post_likes_count }, status: 200
+            p post_likes_count
+            render json: post_likes_count 
           else
             # error message
             # flash.now[:error] = 'An error occured'
