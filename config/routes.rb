@@ -5,12 +5,12 @@ Rails.application.routes.draw do
 
   resources :authors, only:[:index, :show] do
     resources :posts, only:[:index, :show] do
-      resources :comments, only: [:create]
+      resources :comments, only: [:create, :index, :new]
     end
   end
    # get 'posts/new', to: 'posts#new', as: 'new_post' # new
   resources :posts, only:[:create, :new, :edit, :destroy]
-  resources :comments, only:[:new, :edit, :destroy]
+  resources :comments, only:[:edit, :destroy]
   post 'posts/:id/like', to: 'likes#index', as: 'like_action'
   # controller: 'posts', action: 'like'
   # , to: 'posts#like', as: 'like_post'

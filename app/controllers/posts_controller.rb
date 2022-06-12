@@ -16,6 +16,13 @@ class PostsController < ApplicationController
 
     @page_amount = user_posts_count(@user) / 2.to_f
     @page_amount = @page_amount.ceil
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @posts }
+      format.json { render :json => @posts }
+    end
+
   end
 
   def show

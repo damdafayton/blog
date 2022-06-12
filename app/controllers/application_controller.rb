@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :exception, unless: -> {request.format.json?}
 
   before_action :update_allowed_parameters, if: :devise_controller?
 
@@ -14,7 +14,14 @@ class ApplicationController < ActionController::Base
 
   # Catch all CanCan errors and alert the user of the exception
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_url, alert: exception.message
+    respond_to do |format|
+      format.html {redirect_to root_url, alert: exception.message}
+      #redirect_to root_url, alert: exception.message
+      format.json do
+        p 'CANCANCAN RESPONDING TO JSON'
+        render json: {message: 'Access Denied: ' + exception.message}, status: 401
+      end
+    end
   end
 
   # p current_user
