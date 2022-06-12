@@ -1,5 +1,4 @@
 class LikesController < ApplicationController
-  
   skip_before_action :verify_authenticity_token
   # protect_from_forgery except: :like # works without devise
 

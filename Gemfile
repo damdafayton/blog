@@ -72,9 +72,9 @@ group :development, :test do
   gem 'slack-notifier'
   gem 'xmpp4r'
 
-  gem 'rspec-rails', '6.0.0.rc1'
-  gem "database_cleaner"
   gem 'capybara'
+  gem 'database_cleaner'
+  gem 'rspec-rails', '6.0.0.rc1'
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end

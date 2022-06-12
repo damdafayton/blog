@@ -19,7 +19,7 @@ RSpec.describe 'Author Post index page,' do
 
   describe 'renders' do
     it 'user\'s profile picture' do
-      expect(page).to have_selector('.user-image', count:1)
+      expect(page).to have_selector('.user-image', count: 1)
     end
 
     it 'user\'s name' do
@@ -37,7 +37,7 @@ RSpec.describe 'Author Post index page,' do
 
     it 'some of the posts\'s body' do
       post = @author.posts[-1]
-      expect(page).to have_content(post.text.slice(0,200))
+      expect(page).to have_content(post.text.slice(0, 200))
     end
 
     it 'the first comment on a post' do
@@ -48,7 +48,7 @@ RSpec.describe 'Author Post index page,' do
       post = @author.posts[-1]
       expect(page).to have_content("Comments: #{post.comments_counter}")
     end
-  
+
     it 'how many likes a post has' do
       post = @author.posts[-1]
       expect(page).to have_content("Likes: #{post.likes_counter}")
@@ -57,9 +57,8 @@ RSpec.describe 'Author Post index page,' do
     it 'a section for pagination if there are more posts than fit on the view' do
       # click_link post.title
       expect(@author.posts_counter > 2)
-      expect(page).to have_selector("#posts-pagination")
+      expect(page).to have_selector('#posts-pagination')
     end
-  
   end
 
   it 'redirects me to that post\'s show page, when I click on a post' do

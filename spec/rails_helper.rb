@@ -6,7 +6,7 @@ require_relative '../config/environment'
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
-require "capybara/rspec"
+require 'capybara/rspec'
 require 'webdrivers'
 
 Dir[Rails.root.join('spec/config/**/*.rb')].each { |f| require f }
@@ -72,13 +72,13 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     Rails.application.load_seed # loading seeds
-    # load "#{Rails.root}/db/seeds.rb" 
+    # load "#{Rails.root}/db/seeds.rb"
   end
 
   config.before(:each) do
     DatabaseCleaner.strategy = :transaction
   end
-  
+
   config.before(:each, js: true) do
     DatabaseCleaner.strategy = :truncation
   end

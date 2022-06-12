@@ -1,23 +1,17 @@
 require 'rails_helper'
 
-
-# I can see the username and password inputs and the "Submit" button.
-# When I click the submit button without filling in the username and the password, I get a detailed error.
-# When I click the submit button after filling in the username and the password with incorrect data, I get a detailed error.
-# When I click the submit button after filling in the username and the password with correct data, I am redirected to the root page.
-
 RSpec.describe 'Login Page,' do
-  before {visit user_session_path}
-  
-  describe "loads and" do
+  before { visit user_session_path }
+
+  describe 'loads and' do
     it 'shows the email input' do
       expect(page).to have_content('Email')
     end
-  
+
     it 'shows the password input' do
       expect(page).to have_content('Password')
     end
-    
+
     it 'shows the submit button' do
       expect(page).to have_content('Log in')
     end
@@ -49,10 +43,9 @@ RSpec.describe 'Login Page,' do
       fill_in 'Email', with: 'fake1@fake.com'
       fill_in 'Password', with: '123456'
       click_button 'Log in'
-      
+
       expect(page).to have_content('Signed in successfully')
-      expect(page).to have_current_path "/"
+      expect(page).to have_current_path '/'
     end
   end
-
 end

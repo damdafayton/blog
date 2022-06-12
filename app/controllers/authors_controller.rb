@@ -11,7 +11,6 @@ class AuthorsController < ApplicationController
       User.find(params[:id])
     rescue StandardError
       nil
-      p 'no user'
     end
 
     @user_posts = @user.most_recent_posts(2)

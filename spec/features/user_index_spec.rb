@@ -5,10 +5,10 @@ require 'rails_helper'
 # When I click on a user, I am redirected to that user's show page.
 
 RSpec.describe 'Index page,' do
-  before{visit root_path}
-  
+  before { visit root_path }
+
   describe 'shows' do
-    it 'username of all other users' do 
+    it 'username of all other users' do
       expect(page).to have_content('Tom')
       expect(page).to have_content('Lilly')
     end

@@ -17,7 +17,7 @@ RSpec.describe 'Author show page,' do
 
   describe 'renders' do
     it 'user\'s profile picture' do
-      expect(page).to have_selector('.user-image', count:1)
+      expect(page).to have_selector('.user-image', count: 1)
     end
 
     it 'user\'s name' do

@@ -46,7 +46,5 @@ RSpec.describe 'Author Post show page,' do
       comment = @post.comments[-1].text
       expect(page).to have_content(comment)
     end
-
   end
-
 end
