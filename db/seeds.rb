@@ -14,10 +14,10 @@ first_user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0Bx
 second_user = User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Poland.', email: 'fake2@fake.com', password:'he1c314lli')
 
 first_post = Post.create(author_id: first_user, title: 'Hello', text: 'This is my first post')
-Post.create(author_id: first_user, title: 'Hello2', text: 'This is my first post_2')
-Post.create(author_id: first_user, title: 'Hello3', text: 'This is my first post_3')
-Post.create(author_id: first_user, title: 'Hello4', text: 'This is my first post_4')
-Post.create(author_id: second_user, title: 'Hello', text: 'This is my first post')
+Post.create(author_id: first_user.id, title: 'Hello2', text: 'This is my first post_2')
+Post.create(author_id: first_user.id, title: 'Hello3', text: 'This is my first post_3')
+Post.create(author_id: first_user.id, title: 'Hello4', text: 'This is my first post_4')
+Post.create(author_id: second_user.id, title: 'Hello', text: 'This is my first post')
 Post.create(author_id: 1, title: 'Hi 1', text: 'This is my first post')
 Post.create(author_id: 1, title: 'Hi 2', text: 'This is my second post')
 
