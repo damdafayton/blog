@@ -14,7 +14,7 @@ class LikesController < ApplicationController
             # post_likes_count = Post.find(params[:id]).likes_counter
           elsif new_like.save
             # post_likes_count = Post.find(params[:id]).likes_counter
-            p post_likes_count
+            # p post_likes_count
           else
             # error message
             flash.now[:error] = 'An error occured'
