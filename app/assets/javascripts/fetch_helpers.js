@@ -1,3 +1,5 @@
+// onclick="send_like(<%= post.id %>)"
+
 function send_like(id) {
   console.log('hi', id)
   fetch(`/posts/${id}/like`, { method: 'POST' })

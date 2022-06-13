@@ -20,7 +20,7 @@ class Post < ApplicationRecord
   end
 
   def user_liked_this_post?(user_id)
-    Like.exists?(post_id: self.id, author_id: user_id)
+    Like.exists?(post_id: id, author_id: user_id)
   end
 
   private
