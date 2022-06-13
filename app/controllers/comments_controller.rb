@@ -4,8 +4,8 @@ class CommentsController < ApplicationController
 
   SUCCESS_MSG = 'Comment saved successfully'.freeze
   ERROR_MSG = 'Error: Comment could not be saved'.freeze
-  ERROR_NOT_FOUND = 'Comment not found'
-  ERROR_PARAMS = 'Paramater is missing or wrong'
+  ERROR_NOT_FOUND = 'Comment not found'.freeze
+  ERROR_PARAMS = 'Paramater is missing or wrong'.freeze
 
   def create
     new_comment = Comment.new(create_params)
@@ -34,10 +34,10 @@ class CommentsController < ApplicationController
   end
 
   rescue_from ActionController::ParameterMissing do
-    p "MISSING PARAM"
-      respond_to do |format|
-        format.json {render json: ERROR_PARAMS, status: 422}
-      end
+    p 'MISSING PARAM'
+    respond_to do |format|
+      format.json { render json: ERROR_PARAMS, status: 422 }
+    end
   end
 
   def destroy
@@ -48,21 +48,19 @@ class CommentsController < ApplicationController
     end
     redirect_back(fallback_location: root_path)
   end
-  
+
   def index
-    begin
-      comments = Post.find(params[:post_id]).comments
-      respond_to do |format|
-        # format.html # index.html.erb
-        format.xml { render xml: comments }
-        format.json { render json: comments, status: 200 }
-      end
-    rescue ActiveRecord::RecordNotFound
-      respond_to do |format|
-        # format.html # index.html.erb
-        format.xml { render xml: ERROR_NOT_FOUND }
-        format.json { render json: ERROR_NOT_FOUND, status: 404 }
-      end
+    comments = Post.find(params[:post_id]).comments
+    respond_to do |format|
+      # format.html # index.html.erb
+      format.xml { render xml: comments }
+      format.json { render json: comments, status: 200 }
+    end
+  rescue ActiveRecord::RecordNotFound
+    respond_to do |format|
+      # format.html # index.html.erb
+      format.xml { render xml: ERROR_NOT_FOUND }
+      format.json { render json: ERROR_NOT_FOUND, status: 404 }
     end
   end
 

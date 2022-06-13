@@ -76,9 +76,9 @@ group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'rspec-rails', '6.0.0.rc1'
+  gem 'rswag-specs'
   gem 'selenium-webdriver'
   gem 'webdrivers'
-  gem 'rswag-specs'
 end
 
 group :development do

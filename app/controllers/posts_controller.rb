@@ -11,14 +11,14 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html do
         @posts = @user.most_recent_posts(start_from_this_post + posts_per_page)
-                      .slice(start_from_this_post, posts_per_page)
+          .slice(start_from_this_post, posts_per_page)
         # reduce post text
         @posts.each do |post|
-        post.text = "#{post.text.slice(0, 200)}.." if post.text.length > 200
-    end
+          post.text = "#{post.text.slice(0, 200)}.." if post.text.length > 200
+        end
 
-    @page_amount = user_posts_count(@user) / 2.to_f
-    @page_amount = @page_amount.ceil
+        @page_amount = user_posts_count(@user) / 2.to_f
+        @page_amount = @page_amount.ceil
       end
       # format.xml { render xml: @posts }
       format.json do

@@ -20,7 +20,7 @@ RSpec.describe 'BLOGS API', type: :request do
       response '200', 'comments retrieved' do
         run_test!
       end
-    end 
+    end
   end
 
   path '/authors/2/posts/100/comments' do
@@ -31,7 +31,7 @@ RSpec.describe 'BLOGS API', type: :request do
       response '404', 'comment not found' do
         run_test!
       end
-    end 
+    end
   end
 
   path '/authors/2/posts/1/comments' do
@@ -45,7 +45,7 @@ RSpec.describe 'BLOGS API', type: :request do
           title: { type: :string },
           text: { type: :string }
         },
-        required: [ 'title', 'text' ]
+        required: %w[title text]
       }
 
       # needs authorization
