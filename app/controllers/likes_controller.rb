@@ -1,6 +1,7 @@
 class LikesController < ApplicationController
-  skip_before_action :verify_authenticity_token
-  protect_from_forgery except: :index # works without devise
+  # skip_before_action :verify_authenticity_token
+  load_and_authorize_resource
+  # protect_from_forgery except: :index # works without devise
 
   def index
     respond_to do |format|
