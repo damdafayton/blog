@@ -10,7 +10,10 @@ class LikesController < ApplicationController
         if current_user
           new_like = Like.new(author_id: current_user.id, post_id: params[:id])
           if Like.exists?(author_id: current_user.id, post_id: params[:id])
-            render json: { error: 'Post already liked' }
+            likes = Like.all.where(author_id: current_user.id, post_id: params[:id])
+            likes.each {|like| like.destroy}
+            post_likes_count = Post.find(params[:id]).likes_counter
+            render json: {  success: post_likes_count  }
           elsif new_like.save
             # success message
             # flash[:success] = 'New like'

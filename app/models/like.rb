@@ -1,5 +1,5 @@
 class Like < ApplicationRecord
-  belongs_to :post, dependent: :destroy
+  belongs_to :post
   belongs_to :author, class_name: 'User', foreign_key: 'author_id'
 
   validates :author_id, presence: true, numericality: { only_integer: true }
