@@ -9,7 +9,6 @@ class PostsController < ApplicationController
     @user = User.find(params[:author_id])
     @posts = @user.most_recent_posts(start_from_this_post + posts_per_page)
       .slice(start_from_this_post, posts_per_page)
-    p @posts
     # reduce post text
     @posts.each do |post|
       post.text = "#{post.text.slice(0, 200)}.." if post.text.length > 200
@@ -17,6 +16,12 @@ class PostsController < ApplicationController
 
     @page_amount = user_posts_count(@user) / 2.to_f
     @page_amount = @page_amount.ceil
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml { render xml: @posts }
+      format.json { render json: @posts }
+    end
   end
 
   def show
