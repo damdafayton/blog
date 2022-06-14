@@ -1,5 +1,6 @@
 <section class="text-center pt-3 row row-cols-3 pb-2"> 
-  <div class='d-flex justify-content-start align-items-end'>
+  <div class='d-flex justify-content-start align-items-end gap-2'>
+    <%= link_to 'Home', root_path, class:'btn btn-info' %>
     <%= link_to 'New Post', new_post_path, class:'btn btn-primary' %>
   </div>
   <div>
@@ -8,7 +9,7 @@
   </div>
   <div class='d-flex justify-content-end align-items-end gap-2'>
     <% if user_signed_in? %>
-      <%= button_to 'Sign Out', destroy_user_session_path, method: :delete, class: "btn btn-danger btn-sm" %>
+      <%= button_to 'Sign Out', destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
     <% else %>
       <%= link_to 'Sign In', new_user_session_path, class: "btn btn-success" %>
       <%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-warning" %>

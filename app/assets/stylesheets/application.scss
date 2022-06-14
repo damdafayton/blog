@@ -26,6 +26,15 @@ a{
   text-decoration: none !important;
 }
 
+.alert{
+  background: #ffd0d0;
+}
+
+.notice{
+  @extend .alert;
+  background: #d7ffa8;
+}
+
 .user-image {
   height: 150px;
   max-width: 200px;
