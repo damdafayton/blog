@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+  # devise_for :authors
   root 'authors#index'
 
   resources :authors, only:[:index, :show] do

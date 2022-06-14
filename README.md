@@ -1,8 +1,7 @@
 # Blog App
-
+This Blog app is a classic example of a blog website. And the creation of a full functional website that will show the list of posts and empower readers to interact with them by adding comments and liking posts.
 
 ## Built With
-
 - Ruby, Rails
 
 ## Run and test
@@ -34,6 +33,11 @@ $ bundle exec rspec
 - [Github](https://github.com/damdafayton)
 - [LinkedIn](https://linkedin.com/in/damdafayton)
 
+
+👤 **edwardyara**  
+- GitHub: [@oluyaratosin123](https://github.com/oluyaratosin123)
+- Twitter: [@TOluyara](https://twitter.com/TOluyara)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/edward-oluyara/)
 
 ## 🤝 Contributing
 

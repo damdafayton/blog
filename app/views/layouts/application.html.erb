@@ -13,7 +13,7 @@
   <main class='px-3 px-sm-5'>
     <%= render "layouts/nav" %>
     <% flash.each do |name, msg| -%>
-      <%= content_tag :div, msg, class: 'my-1' %>
+      <%= content_tag :div, msg, class: "#{name} my-1" %>
     <% end -%>
     <%= yield %>
   </main>
