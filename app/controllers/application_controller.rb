@@ -1,8 +1,6 @@
 class ApplicationController < ActionController::Base
   include Turbo::Redirection
-
   protect_from_forgery with: :exception, unless: -> { request.format.json? }
-
   before_action :update_allowed_parameters, if: :devise_controller?
 
   protected
@@ -18,19 +16,11 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     respond_to do |format|
       format.html { redirect_to user_session_path, alert: exception.message }
-      # redirect_to root_url, alert: exception.message
       format.json do
-        p 'CANCANCAN RESPONDING TO JSON'
         render json: { message: "Access Denied: #{exception.message}" }, status: 401
       end
     end
   end
-
-  # p current_user
-
-  # def current_user
-  #   User.find(2)
-  # end
 
   def user_posts_count(user_id)
     Post.where(author_id: user_id).length
