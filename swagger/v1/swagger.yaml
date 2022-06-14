@@ -1,0 +1,56 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/authors/2/posts/":
+    get:
+      summary: Lists all posts of the author
+      tags:
+      - Post
+      responses:
+        '200':
+          description: posts retrieved
+  "/authors/2/posts/1/comments":
+    get:
+      summary: Lists all comments of the post
+      tags:
+      - Comment
+      responses:
+        '200':
+          description: comments retrieved
+    post:
+      summary: Creates new comment
+      tags:
+      - Comment
+      parameters: []
+      responses:
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                text:
+                  type: string
+              required:
+              - title
+              - text
+  "/authors/2/posts/100/comments":
+    get:
+      summary: Gives error if comment doesn't exist
+      tags:
+      - Comment
+      responses:
+        '404':
+          description: comment not found
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com

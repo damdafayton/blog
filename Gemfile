@@ -2,19 +2,13 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.2'
-
-# gem 'erb-formatter'
-# gem 'htmlbeautifier'
-# gem 'erb-lint'
+gem 'rswag-api'
+gem 'rswag-ui'
 gem 'cancancan'
 gem 'devise'
 gem 'font-awesome-sass'
-# gem 'jquery-rails'
-# gem 'font-awesome-rails'
 gem 'bootstrap', '~> 5.1', '>= 5.1.3'
 gem 'sass-rails'
-# gem 'turbolinks', '~> 5.2.0'
-
 gem 'ffi'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
@@ -76,6 +70,7 @@ group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'rspec-rails', '6.0.0.rc1'
+  gem 'rswag-specs'
   gem 'selenium-webdriver'
   gem 'webdrivers'
   gem 'dotenv-rails'

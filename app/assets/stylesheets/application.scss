@@ -26,6 +26,12 @@ a{
   text-decoration: none !important;
 }
 
+.btn{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 .alert{
   background: #ffd0d0;
 }
@@ -36,7 +42,7 @@ a{
 }
 
 .user-image {
-  height: 150px;
+  height: 100px;
   max-width: 200px;
 }
 
