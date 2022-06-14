@@ -1,6 +1,9 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
+
 @import "custom";
+@import "yeti/variables";
 @import "bootstrap";
+// @import "bootswatch";
 // @import "font-awesome-sprockets";
 @import "font-awesome";
 
@@ -19,9 +22,13 @@
  *= require_tree .
  *= require_self
  */
+a{
+  text-decoration: none !important;
+}
 
 .user-image {
   height: 150px;
+  max-width: 200px;
 }
 
 .color-red {
