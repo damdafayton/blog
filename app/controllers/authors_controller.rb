@@ -3,7 +3,7 @@ class AuthorsController < ApplicationController
   # p user_session\
 
   def index
-    @authors = User.all
+    @authors = User.all.reverse
   end
 
   def show
