@@ -63,14 +63,18 @@ gem 'bootsnap', require: false
 # gem "image_processing", "~> 1.2"
 
 group :development, :test do
-  gem 'capybara'
   gem 'rails-controller-testing'
-  gem 'rspec-rails', '6.0.0.rc1'
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'bullet'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'slack-notifier'
   gem 'xmpp4r'
+
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'rspec-rails', '6.0.0.rc1'
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
 end
 
 group :development do
@@ -90,7 +94,4 @@ group :test do
   gem 'rubocop-discourse'
   gem 'rubocop-rspec'
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  # gem 'capybara'
-  gem 'selenium-webdriver'
-  gem 'webdrivers'
 end

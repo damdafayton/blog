@@ -1,5 +1,6 @@
 class LikesController < ApplicationController
-  protect_from_forgery except: :like
+  skip_before_action :verify_authenticity_token
+  # protect_from_forgery except: :like # works without devise
 
   def index
     new_like = Like.new(author_id: current_user.id, post_id: params[:id])

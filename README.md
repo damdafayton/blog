@@ -1,5 +1,6 @@
 # Blog App
 
+
 ## Built With
 
 - Ruby, Rails, Bootstrap, SASS, Postgresql
@@ -7,7 +8,6 @@
 - Authorization: CanCanCan
 - Test: Rspec, Capybara
 - Linter: Rubocop, Stylelint
-
 
 ## Run and test
 You must have Ruby and Rails installed.
