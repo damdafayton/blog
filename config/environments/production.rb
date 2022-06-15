@@ -104,7 +104,8 @@ Rails.application.configure do
   #   :authentication => :plain,
   #   :enable_starttls_auto => true
   # }
-
+  
+  config.action_mailer.default_url_options = { :host => 'damdafayton-blog.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     port: ENV['MAILGUN_SMTP_PORT'],
