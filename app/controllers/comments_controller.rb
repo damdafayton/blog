@@ -1,6 +1,8 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource
+
   def create
-    new_comment = Comment.new(new_comment_params)
+    new_comment = Comment.new(create_params)
     new_comment.author_id = current_user.id
     p new_comment
     p params
@@ -19,9 +21,19 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    if @comment.destroy
+      flash[:success] = 'Comment deleted successfully'
+    else
+      flash[:error] = 'Error: Comment could not be deleted'
+    end
+    redirect_back(fallback_location: root_path)
+  end
+
   private
 
-  def new_comment_params
+  # use create_ for cancancan
+  def create_params
     params.require(:comment).permit(:text, :post_id)
   end
 end

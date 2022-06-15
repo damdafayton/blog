@@ -1,23 +1,33 @@
 <div class='blog-card'>
+  <div class='d-flex justify-content-between'>
+    <div class='d-flex align-items-end mb-2'>
+      <h2 class='mb-0'>
+        <%= link_to post.title, author_post_path(post.author.id, post.id) %>
+      </h2>
+      <% unless index_view %>
+        <span>
+          <%= link_to " by #{post.author.name}", author_posts_path %>
+        </span>
+      <% end %>
+    </div>
 
-  <div class='d-flex align-items-end mb-2'>
-    <h2 class='mb-0'>
-      <%= link_to post.title, author_post_path(post.author.id, post.id) %>
-    </h2>
-    <% unless index_view %>
-      <span>
-        <%= link_to " by #{post.author.name}", author_posts_path %>
-      </span>
-    <% end %>
+    <div class='text-end d-flex flex-column justify-content-between'>
+      <div>
+      <% if current_user.id == post.author_id %>
+        <label for="delete-post-<%=post.id%>">
+          <i class="fa-solid fa-trash cursor-pointer" aria-hidden="true"></i>
+        </label>
+        <%= button_to '', post_path(post.id), method: :delete, class: 'd-none', id: "delete-post-#{post.id}" %>
+      <% end %>
+      </div>
+      <div>
+        <span><%= t('comments')%> <%= post.comments_counter || 0 %></span>
+        <span><%= t('likes')%> </span><span id="<%= 'likes_count_' + post.id.to_s %>"><%= post.likes_counter || 0 %></span>
+        <i class="fa-solid fa-heart cursor-pointer" aria-hidden="true" onclick="send_like(<%= post.id %>)"></i>
+      </div>
+    </div>
   </div>
-
   <div><%= post.text %></div>
-
-  <div class='text-end'>
-    <span><%= t('comments')%> <%= post.comments_counter || 0 %></span>
-    <span><%= t('likes')%> </span><span id="<%= 'likes_count_' + post.id.to_s %>"><%= post.likes_counter || 0 %></span>
-    <i class="fa-solid fa-heart cursor-pointer" aria-hidden="true" onclick="send_like(<%= post.id %>)"></i>
-  </div>
   
   <% if post.comments_counter.to_i > 0 and show_comment %>
     <div>

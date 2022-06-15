@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  # load_and_authorize_resource
+  load_and_authorize_resource
 
   def index
     # make url_helper for pagination
@@ -25,6 +25,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    p 'user = ', current_user
     # @post = Post.joins(:author).select('posts.*, users.name').find(params[:id])
     @post = Post.includes(:author).find(params[:id])
   end
