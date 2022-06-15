@@ -13,7 +13,6 @@ ActionMailer::Base.smtp_settings = {
   :domain => 'damdafayton-blog.herokuapp.com', 
   :enable_starttls_auto => true 
 }
-ActionMailer::Base.delivery_method = :smtp
 
 # ActionMailer::Base.smtp_settings = {
 #   :port           => ENV['MAILGUN_SMTP_PORT'],
