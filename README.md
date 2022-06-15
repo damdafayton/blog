@@ -1,4 +1,6 @@
 # Blog App
+This Blog app is a classic example of a blog website. And the creation of a full functional website that will show the list of posts and empower readers to interact with them by adding comments and liking posts.
+
 
 ## Built With
 
