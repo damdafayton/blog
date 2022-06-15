@@ -2,14 +2,14 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.2'
-gem 'rswag-api'
-gem 'rswag-ui'
+gem 'bootstrap', '~> 5.1', '>= 5.1.3'
 gem 'cancancan'
 gem 'devise'
-gem 'font-awesome-sass'
-gem 'bootstrap', '~> 5.1', '>= 5.1.3'
-gem 'sass-rails'
 gem 'ffi'
+gem 'font-awesome-sass'
+gem 'rswag-api'
+gem 'rswag-ui'
+gem 'sass-rails'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.3'
@@ -69,11 +69,11 @@ group :development, :test do
 
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'dotenv-rails'
   gem 'rspec-rails', '6.0.0.rc1'
   gem 'rswag-specs'
   gem 'selenium-webdriver'
   gem 'webdrivers'
-  gem 'dotenv-rails'
 end
 
 group :development do

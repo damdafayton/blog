@@ -12,10 +12,12 @@ module ApplicationHelper
   end
 
   def image_control(image_url)
-    avatars = ["avatar1.png", "avatar2.png", "boy.png", "delivery_boy.png"]
-    unless image_url&.end_with?('png') or image_url&.end_with?('jpg') or image_url&.end_with?('gif') or image_url&.end_with?('jpeg')
-      return avatars[(rand*avatars.length).to_i]
+    avatars = ['avatar1.png', 'avatar2.png', 'boy.png', 'delivery_boy.png']
+    unless image_url&.end_with?('png') or image_url&.end_with?('jpg') or
+           image_url&.end_with?('gif') or image_url&.end_with?('jpeg')
+      return avatars[(rand * avatars.length).to_i]
     end
-    return image_url
+
+    image_url
   end
 end
