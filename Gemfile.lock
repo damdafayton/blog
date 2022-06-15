@@ -275,12 +275,6 @@ GEM
     thor (1.2.1)
     tilt (2.0.10)
     timeout (0.3.0)
-    turbo-rails (1.0.1)
-      actionpack (>= 6.0.0)
-      railties (>= 6.0.0)
-    turbolinks (5.2.1)
-      turbolinks-source (~> 5.2)
-    turbolinks-source (5.2.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     tzinfo-data (1.2022.1)
@@ -336,8 +330,6 @@ DEPENDENCIES
   slack-notifier
   sprockets-rails
   stimulus-rails
-  turbo-rails (~> 1.0.0)
-  turbolinks (~> 5.2.0)
   tzinfo-data
   web-console
   webdrivers

@@ -11,9 +11,9 @@ RSpec.describe 'Authors', type: :request do
     end
   end
 
-  describe 'GET /authors/2' do
+  describe 'GET /authors/1' do
     it 'shows single user' do
-      get author_path(2)
+      get author_path(1)
       expect(response).to have_http_status(:ok)
       expect(response.body).to include('Bio:')
       expect(response).to render_template(:show)
