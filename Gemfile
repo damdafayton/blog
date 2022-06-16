@@ -13,7 +13,6 @@ gem 'font-awesome-sass'
 # gem 'font-awesome-rails'
 gem 'bootstrap', '~> 5.1', '>= 5.1.3'
 gem 'sass-rails'
-# gem 'turbolinks', '~> 5.2.0'
 
 gem 'ffi'
 
@@ -33,8 +32,6 @@ gem 'puma', '~> 5.0'
 gem 'importmap-rails'
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem 'turbo-rails'
-# gem 'turbo-rails', '~> 1.0.0'
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem 'stimulus-rails'
