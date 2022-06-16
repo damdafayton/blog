@@ -1,5 +1,6 @@
 # Blog App
 
+
 ## Built With
 
 - Ruby, Rails, Bootstrap, SASS, Postgresql
@@ -7,7 +8,6 @@
 - Authorization: CanCanCan
 - Test: Rspec, Capybara
 - Linter: Rubocop, Stylelint
-
 
 ## Run and test
 You must have Ruby and Rails installed.
@@ -38,6 +38,11 @@ $ bundle exec rspec
 - [Github](https://github.com/damdafayton)
 - [LinkedIn](https://linkedin.com/in/damdafayton)
 
+
+👤 **edwardyara**  
+- GitHub: [@oluyaratosin123](https://github.com/oluyaratosin123)
+- Twitter: [@TOluyara](https://twitter.com/TOluyara)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/edward-oluyara/)
 
 ## 🤝 Contributing
 
