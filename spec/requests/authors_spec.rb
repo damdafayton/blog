@@ -10,13 +10,12 @@ RSpec.describe 'AUTHORS =>', type: :request do
       expect(response).to render_template(:index)
     end
   end
-
-  describe 'GET /authors/2 =>' do
-    it 'renders the user\'s show page' do
-      get author_path(2)
-      expect(response).to have_http_status(:ok)
-      expect(response.body).to include('Bio:')
-      expect(response).to render_template(:show)
-    end
-  end
+  # describe 'GET /authors/1' do
+  #   it 'shows single user' do
+  #     get author_path(1)
+  #     expect(response).to have_http_status(:ok)
+  #     expect(response.body).to include('Bio:')
+  #     expect(response).to render_template(:show)
+  #   end
+  # end
 end
