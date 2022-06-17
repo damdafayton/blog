@@ -33,7 +33,7 @@ RSpec.describe 'Author show page,' do
     end
 
     it 'user\'s first 2 posts' do
-      expect(page).to have_selector('.blog-card', count: 3) # one card for user bio
+      expect(page).to have_selector('.blog-card', count: 4) # one card for user bio
     end
 
     it 'button that let\'s me view user\'s all posts' do
