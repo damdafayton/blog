@@ -34,3 +34,5 @@
 /config/local_env.yml
 /vendor
 documentation.txt
+.env
+config-doc.txt
