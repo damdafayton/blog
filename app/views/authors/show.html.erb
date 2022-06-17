@@ -1,6 +1,6 @@
-<section class="">
+<section class="container">
   <%= render partial: 'authors/user', object: @user %>
-  <div class='blog-card'>
+  <div class='blog-card p-5 m-0 mt-4 mb-5'>
     <h2><%= t("bio")%></h2>
     <div><%= @user.bio %></div>
   </div>
@@ -13,7 +13,7 @@
   </div>
   <% if author_posts_more_than?(@user) then %>
     <div class='text-center mt-3'>
-      <%= link_to t("see_all"), author_posts_path(:author_id=>@user.id), class:'btn btn-secondary' %>
+      <%= link_to t("see_all"), author_posts_path(:author_id=>@user.id), class:'btn btn-primary' %>
     </div>
   <% end %>
 </section>
