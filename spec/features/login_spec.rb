@@ -29,19 +29,19 @@ RSpec.describe 'Login Page,' do
       expect(page).to have_content('Invalid Email or password')
     end
 
-    it 'show detailed error to confirm email if email is not confirmed' do
-      fill_in 'Email', with: 'fake1@fake.com'
-      fill_in 'Password', with: '123456'
-      click_button 'Log in'
-      expect(page).to have_content('You have to confirm your email address')
-    end
+    # it 'show detailed error to confirm email if email is not confirmed' do
+    #   fill_in 'Email', with: 'fake2@fake.com'
+    #   fill_in 'Password', with: 'he1c314lli'
+    #   click_button 'Log in'
+    #   expect(page).to have_content('You have to confirm your email address')
+    # end
 
     it 'show success message and redirects to root page if correct data is filled' do
       # confirm user email
       User.find(1).update(confirmed_at: DateTime.now)
 
-      fill_in 'Email', with: 'fake1@fake.com'
-      fill_in 'Password', with: '123456'
+      fill_in 'Email', with: 'fake2@fake.com'
+      fill_in 'Password', with: 'he1c314lli'
       click_button 'Log in'
 
       expect(page).to have_content('Signed in successfully')
