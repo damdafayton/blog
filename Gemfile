@@ -2,9 +2,19 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.2'
-gem 'bootstrap', '~> 5.1', '>= 5.1.3'
+
+gem 'rswag-api'
+gem 'rswag-ui'
+
 gem 'cancancan'
 gem 'devise'
+
+gem 'font-awesome-sass'
+# gem 'jquery-rails'
+
+gem 'bootstrap', '~> 5.1', '>= 5.1.3'
+gem 'sass-rails'
+
 gem 'ffi'
 gem 'font-awesome-sass'
 gem 'rswag-api'
@@ -27,8 +37,6 @@ gem 'puma', '~> 5.0'
 gem 'importmap-rails'
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem 'turbo-rails'
-# gem 'turbo-rails', '~> 1.0.0'
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem 'stimulus-rails'

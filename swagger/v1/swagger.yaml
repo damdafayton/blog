@@ -54,3 +54,7 @@ servers:
   variables:
     defaultHost:
       default: www.example.com
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: localhost:3000

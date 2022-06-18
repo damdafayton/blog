@@ -7,12 +7,9 @@ class AuthorsController < ApplicationController
   end
 
   def show
-    @user = begin
-      User.find(params[:id])
-    rescue StandardError
-      nil
-    end
-
-    @user_posts = @user.most_recent_posts(2)
+    @user = User.find(params[:id])
+    @user_posts = @user&.most_recent_posts(2)
+  rescue StandardError
+    nil
   end
 end
