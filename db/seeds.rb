@@ -12,7 +12,7 @@
 
 first_user = User.create(name: 'Tom', photo: '', bio: 'Teacher from Mexico.', email: 'fake@fake.com', password:'123456')
 second_user = User.create(name: 'Lilly', photo: '', bio: 'Teacher from Poland.', email: 'fake2@fake.com', password:'he1c314lli')
-second_user = User.create(name: 'Markan', photo: '', bio: 'Runner from Thailand.', email: 'fake3@fake.com', password:'he1c314lli')
+third_user = User.create(name: 'Markan', photo: '', bio: 'Runner from Thailand.', email: 'fake3@fake.com', password:'he1c314lli')
 
 first_post = Post.create(author_id: first_user, title: 'How I started writing', text: 'This is my first post')
 Post.create(author_id: first_user.id, title: 'Advantages of walking', text: 'This is my post_2')

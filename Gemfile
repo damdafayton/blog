@@ -10,16 +10,11 @@ gem 'cancancan'
 gem 'devise'
 
 gem 'font-awesome-sass'
-# gem 'jquery-rails'
-
 gem 'bootstrap', '~> 5.1', '>= 5.1.3'
 gem 'sass-rails'
 
 gem 'ffi'
-gem 'font-awesome-sass'
-gem 'rswag-api'
-gem 'rswag-ui'
-gem 'sass-rails'
+gem 'tzinfo-data'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.3'
@@ -56,7 +51,6 @@ gem 'jbuilder'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 # gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # gem "tzinfo-data", platforms: [ :mingw, :mswin, :x64_mingw, :jruby ]
-gem 'tzinfo-data'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
