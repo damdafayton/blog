@@ -17,7 +17,7 @@ You must have Ruby and Rails installed.
 ### How to run
 
 ```
-$ git clone https://github.com/damdafayton/blog
+$ git clone https://github.com/damdafayton/rails-blog
 $ cd blog
 $ bundle install
 $ rails s
@@ -25,7 +25,7 @@ $ rails s
 
 ### How to test
 ```
-$ git clone https://github.com/damdafayton/blog
+$ git clone https://github.com/damdafayton/rails-blog
 $ cd blog
 $ bundle install
 $ bundle exec rspec
