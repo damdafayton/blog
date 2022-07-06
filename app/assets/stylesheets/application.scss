@@ -22,22 +22,23 @@
  *= require_tree .
  *= require_self
  */
-a{
+a {
   text-decoration: none !important;
 }
 
-.btn{
+.btn {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
 
-.alert{
+.alert {
   background: #ffd0d0;
 }
 
-.notice{
+.notice {
   @extend .alert;
+
   background: #d7ffa8;
 }
 

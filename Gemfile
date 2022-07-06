@@ -9,8 +9,8 @@ gem 'rswag-ui'
 gem 'cancancan'
 gem 'devise'
 
-gem 'font-awesome-sass'
 gem 'bootstrap', '~> 5.1', '>= 5.1.3'
+gem 'font-awesome-sass'
 gem 'sass-rails'
 
 gem 'ffi'
