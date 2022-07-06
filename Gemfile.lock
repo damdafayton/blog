@@ -140,7 +140,6 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
-    json (2.6.2)
     json-schema (2.8.1)
       addressable (>= 2.4)
     loofah (2.18.0)
@@ -327,10 +326,6 @@ GEM
     thor (1.2.1)
     tilt (2.0.10)
     timeout (0.3.0)
-    turbo-rails (1.1.1)
-      actionpack (>= 6.0.0)
-      activejob (>= 6.0.0)
-      railties (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     tzinfo-data (1.2022.1)
@@ -374,7 +369,6 @@ DEPENDENCIES
   font-awesome-sass
   importmap-rails
   jbuilder
-  mailcatcher
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.3)
@@ -391,7 +385,6 @@ DEPENDENCIES
   slack-notifier
   sprockets-rails
   stimulus-rails
-  turbo-rails
   tzinfo-data
   web-console
   webdrivers

@@ -19,6 +19,11 @@ class ApplicationController < ActionController::Base
       format.json do
         render json: { message: "Access Denied: #{exception.message}" }, status: 401
       end
+
+      format.js do
+        p 'CANCANCAN RESPONDING TO JSON'
+        render json: { message: "Access Denied: #{exception.message}" }, status: 401
+      end
     end
   end
 

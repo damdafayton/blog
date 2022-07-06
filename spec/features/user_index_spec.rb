@@ -13,14 +13,14 @@ RSpec.describe 'Index page,' do
       expect(page).to have_content('Lilly')
     end
 
-    it 'shows profile picture for each user' do
+    it 'profile picture for each user' do
       # expect(page).to have_css('.user-image', :count => 2)
       # expect(all('.user-image').count).to eq(2)
-      expect(page).to have_selector('.user-image', count: 2)
+      expect(page).to have_selector('.user-image', count: 3)
     end
 
-    it 'shows the number of posts each user has written' do
-      expect(page).to have_content('Number of posts', count: 2)
+    it 'the number of posts each user has written' do
+      expect(page).to have_content('Number of posts', count: 3)
     end
   end
 
